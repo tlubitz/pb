@@ -116,6 +116,9 @@ def balancing():
     if sbtabform.process(formname='form_two').accepted:
         response.flash = 'form accepted'
         session.warnings_sbtab = []
+        if not 'sbtabs' in session:
+            session.sbtabs = []
+            session.sbtab_names = []
         filename = request.vars.File.filename
         if filename in session.sbtab_names:
             session.warnings_sbtab.append('Error: Duplicate file name. Please remove the file with the same name before uploading.')
@@ -161,13 +164,6 @@ def balancing():
         except:
             session.warnings_sbtab.append('Error: The data file could not be validated. We suggest to validate the file manually on www.sbtab.net.')
             
-        if not 'sbtabs' in session:
-            session.sbtab       = None
-            session.sbtab_name  = None
-            session.sbtabs      = []
-            session.sbtab_names = []
-
-
     elif sbtabform.errors: response.flash = 'Form has errors'
 
     ###########################################################################################
