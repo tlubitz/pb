@@ -1,0 +1,124 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Timo Lubitz">
+    <meta name="description"  content="Parameter Balancing Website">
+    <!-- this is required for responsiveness -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Parameter Balancing for Kinetic Models of Cell Metabolism</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/pb.css">-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/pb/static/images/pb-logo.png" type="image/icon">
+    <link rel="icon" href="/pb/static/images/pb-logo.png" type="image/icon">
+  </head>
+
+  <body>
+    <!-- navbar: this is a navbar; navbar-inverse: it's dark; navbar-static-top: it's always at the top -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <!-- setting a max-width by using a container -->
+      <div class="container">
+
+	<div class="navbar-header">
+	  <!-- button is hidden on desktop, becomes a hamburger on mobile! the span items are the hamburger lines --> 
+	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	    <span class="sr-only">Toggle navigation</span>
+	    <span class="icon-bar">A</span>
+	    <span class="icon-bar">N</span>
+	    <span class="icon-bar">C</span>
+	  </button>
+	  <a class="navbar-brand" href="main.html" title="Take me home">Timo Lubitz - Development Galore</a>
+	</div>
+	
+	<!-- simple right aligned list-->
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	  <ul class="nav navbar-nav navbar-right">
+	    <li> <a href="about" title="Find out all about Timo">About Timo</a></li>
+
+	    <li class="dropdown">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Click to see the services Timo has to offer">Services<span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+		<li><a href="software" title="An overview of Timo's software development">Software Development</a></li>
+		<li><a href="web" title="An overview of Timo's web development">Web Development</a></li>
+		<li><a href="proof" title="An overview of Timo's proof reading features">Proof Reading</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="contact" title="Contact Timo. He's just waiting for it">Contact</a></li>
+	    <li class="dropdown">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Choose a language for the website">Languages<span class="caret"></span></a>
+		   <ul class="dropdown-menu">
+		     <li><a href="#"><img src="img/uk.ico" width="22" alt="English flag">&nbsp;&nbsp;English</a></li>
+		     <li><a href="#"><img src="img/germany.ico" width="22" alt="Deutsche Flagge">&nbsp;&nbsp;Deutsch</a></li>
+		   </ul>
+	    </li>
+	  </ul>
+	</div>
+      </div>
+    </nav>
+
+
+
+    
+    <table cellpadding="2">
+      <tbody>
+	<tr>
+	  <td>&nbsp;&nbsp;</td>
+	  <td>
+	    <table>
+	      <tbody>
+		<tr>
+		  <td>
+		    <a href="/pb/static/main.html">
+		      <img src="/pb/static/images/pb-logo.png" width="100">
+		    </a>
+		  </td>
+		  <td width="12.5"></td>
+		  <td valign="bottom">
+		    <br>
+		    <h1>Parameter balancing <br>for kinetic metabolic models</h1>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <hr style="width:900;float:left;"><br>
+    
+	    <p style="margin-left:250;">
+	      Main |
+	      <a href="/pb/default/balancing.html">Online Balancing</a> |
+	      <a href="/pb/static/documentation.html">Documentation</a> |
+	      <a href="/pb/static/download.html">Download</a> |
+	      <a href="/pb/static/contact.html">Contact</a>
+	    </p>
+	    <br>
+      
+	    <p style="width:900;">Parameter balancing is a computational
+	      method for obtaining consistent parameter sets for kinetic
+	      metabolic models. Experimentally measured values, when inserted
+	      into models directly, would be likely to yield incomplete and
+	      inconsistent parameter sets. Balanced parameter sets, computed from measured kinetic
+	      constants and other experimental data, are complete and consistent: they respect  constraints
+	      between biochemical quantities and assumptions about typical
+	      ranges, represented by prior values and bounds.</p>
+	    
+	    <p style="width:900;">On this website, users can apply parameter
+	      balancing to their own metabolic models. Aside from the metabolic
+	      model itself (in <a href="http://www.sbml.org/">SBML</a>
+	      or <a href="http://www.sbtab.net/">SBtab</a> format), users can upload
+	      additional SBtab files describing (i) measured kinetic and other data, (ii)
+	      prior distributions for different types of kinetic parameters, and
+	      (iii) configuration options for the balancing process.
+	    </p>
+	    
+	    <p style="width:900;">To get acquainted with parameter balancing, please
+	      read the <a href="/pb/static/documentation.html">documentation page</a>
+	      and the <a href="/pb/static/files/manual.pdf">manual</a>.
+	    </p>
+	  </td>
+	</tr>
+      </tbody>
+    </table>
+    
+  </body>
+</html>

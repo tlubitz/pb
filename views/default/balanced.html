@@ -1,0 +1,86 @@
+{{extend 'layout.html'}}
+
+<header>
+  <div style="padding-top:100px" class="container-fluid bg-2 text-center">
+    <h2>Parameter Balancing Online: Results</h2>
+  </div>
+</header>
+
+<main>
+  <div class="container-fluid bg-3 text-center">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4">
+	{{if RESULT_SBML_NAME:}}
+	<article>
+	  <header>
+	    <h3>Download area SBML</h3>
+	  </header>
+
+	  <div class="container-fluid" style="padding-bottom:5px">
+	    <h4>
+	      <a href="/pb/default/show_sbml2/{{=str(0)}}" target="_new"> {{=RESULT_SBML_NAME[0]}}</a>
+	    </h4>
+	    <div class="btn-group">
+	      <form>
+		<button class="btn btn-primary" type="submit" value="{{=0}}" name="download_button_sbml">Download</button>
+		<button class="btn btn-primary" type="submit" value="{{=0}}" name="erase_button_sbml2">Remove</button>
+	      </form>
+	    </div>
+	  </div>
+	</article>
+	{{pass}}
+
+	{{if RESULT_SBTAB_NAME:}}
+	<article>
+	  <header>
+	    <h3>Download area SBtab</h3>
+	  </header>
+	  <div class="container-fluid" style="padding-bottom:5px">
+	    {{for pos,f in enumerate(RESULT_SBTAB_NAME):}}
+	    <h4>
+	      <a href="/pb/default/show_sbtab2/{{=str(pos)}}" target="_new"> {{=f}}</a>
+	    </h4>
+	    <div class="btn-group">
+	      <form>
+		<button class="btn btn-primary" type="submit" value="{{=pos}}" name="download_button_sbtab">Download</button>
+		<button class="btn btn-primary" type="submit" value="{{=pos}}" name="erase_button_sbtab2">Remove</button>
+	      </form>
+	    </div>
+	    {{pass}}
+	  </div>
+	  {{pass}}
+	  <!--{{pass}}-->
+
+	  <!-- Display warnings -->
+	  {{if (WARNINGS and RESULT_SBML_NAME) or (WARNINGS and RESULT_SBTAB_NAME) :}}
+	  {{for pos,f in enumerate(WARNINGS):}}
+	  <font color="red">{{=f}}</font>
+	  {{pass}}
+	  
+	  {{elif RESULT_SBML_NAME or RESULT_SBTAB_NAME:}}
+	  No file warnings detected. Please see <a href="/pb/default/show_log/{{=str(0)}}" target="_new">log file</a> for parameter balancing warnings.
+	  {{else:}}
+	  There are no more files to show here. Please return to the <a href="../static/main.html">homepage</a>.
+	  {{pass}}
+	</article>
+	<article>
+	  <div class="row">
+	    <div class="col-sm-12" align="center">
+	      <hr>
+	      Information on the use of online balancing can be found on the <a href="../static/documentation.html#wf">documentation page</a>.
+	      <hr>
+	      <a href="../default/balancing.html">Run parameter balancing again</a>.
+	    </div>
+	  </div>
+	</article>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
