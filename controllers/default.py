@@ -25,7 +25,7 @@ def index():
     '''
     index function that is called upon first call of website
     '''
-    redirect(URL('../../../pbnew/static/css/css_template/main.html'))
+    redirect(URL('../../static/css/css_template/main.html'))
         
 def clearsession():
     '''
