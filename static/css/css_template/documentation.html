@@ -738,6 +738,12 @@
 		    parameter values in your model and would like to avoid them, you
 		    may use tighter priors or pseudo values to exclude extreme 
 		    parameter values.</li>
+		    <li><b>How are enzymes handled in the balancing?</b>In SBML, enzymes
+		      are sometimes treated as SBML species and sometimes as SBML parameters; this
+		      is mainly up to the modeller. In parameter balancing, enzymes need to be
+		      parameters. If they are provided as species, they cannot correctly be
+		      assigned as reaction modifiers and thus are ignored.
+		    </li>
 		  </ul>
 		</li>
 		<li>
