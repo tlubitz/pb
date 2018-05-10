@@ -496,7 +496,6 @@ def balancing():
                 pb = balancer.ParameterBalancing(sbml_model)
                 sbtab_data = pb.make_sbtab(sbtab_file, sbtab_file.filename, 'All organisms', 43,
                                            pmin, pmax, session.parameter_dict)
-
             except:
                 session.warnings_sbml.append('Error: The SBML file %s could not be processed properly.'%(sbml_filename))
                 redirect(URL('../../../pbnew/default/balancing'))
@@ -630,6 +629,7 @@ def balancing():
     if request.vars.balance_fastlane:
         session.sbtab_fl = session.sbtab_fls[0]
         session.sbtab_fl_name = session.sbtab_fl_names[0]
+        sbtab_data = False
         sbtab_q = False
         sbtab_c = False
         session.warnings = []
