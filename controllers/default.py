@@ -41,7 +41,7 @@ def clearsession():
     session.result_sbml = None
     session.sbmls = []
     session.sbml_names = []
-    session.result_sbml_name= None
+    session.result_sbml_name = None
     session.sbtab = None
     session.sbtab_name = None
     session.sbtab_fls = []
@@ -51,11 +51,11 @@ def clearsession():
     session.sbtabs = []
     session.result_sbtab = []
     session.result_sbtab_name = []
-    session.sbtab_names = []    
+    session.sbtab_names = []
     session.prior = None
     session.prior_name = None
     session.priors = []
-    session.prior_names = []    
+    session.prior_names = []
     session.emptysbtab = False
     session.log = None
     session.config_file = None
@@ -179,7 +179,7 @@ def balancing():
             session.warnings_sbtab.append('This is not a valid SBtab file. Ple'
                                           'ase ensure the validity of the data'
                                           ' file.')
-            
+
         try:
             def_file_open = open('./applications/pb/static/files/default_files'
                                  '/definitions.tsv')
@@ -339,11 +339,11 @@ def balancing():
         except:
             session.warnings_config.append('Error: This is not a valid SBtab o'
                                            'ptions file.')
-                
+
     elif configform.errors: response.flash = 'Form has errors'
 
     ###########################################################################
-    ###RIGHT SIDE: Fast lane balancing (SBtab only)                       #####
+    ### RIGHT SIDE: Fast lane balancing (SBtab only)                       ####
     ###########################################################################
 
     sbtab_fl_form = SQLFORM.factory(Field('File', 'upload', uploadfolder="/tmp",
@@ -659,15 +659,15 @@ def balancing():
             except: redirect(URL('../balancing'))
 
         # 7: fill the model with the parameters and the kinetics
-        try: param = session.parameter_dict['parametrisation'] 
+        try: param = session.parameter_dict['parametrisation']
         except: param = 'hal'
         try: prefac = session.parameter_dict['enzyme_prefactor']
         except: prefac = True
-        try: inh = session.parameter_dict['default_inh'] 
+        try: inh = session.parameter_dict['default_inh']
         except: inh = 'complete_inh'
         try: act = session.parameter_dict['default_act']
         except: act = 'complete_act'
-        try: overwrite = session.parameter_dict['overwrite_kinetics'] 
+        try: overwrite = session.parameter_dict['overwrite_kinetics']
         except: overwrite = True
 
         try:
@@ -688,7 +688,7 @@ def balancing():
             ### model_name
             model_name = str(sbml_filename)[:-4] + '_balanced_model.xml'
             sbml_code = '<?xml version="1.0" encoding="UTF-8"?>\n' + \
-                        sbml_model.toSBML()    
+                        sbml_model.toSBML()
             session.result_sbml = [sbml_code]
             session.result_sbml_name = [model_name]
         except:
@@ -788,7 +788,7 @@ def balancing():
                                        'ty.')
             redirect(URL('../../../pbnew/default/balancing'))
             try: redirect(URL('../default/balancing'))
-            except: redirect(URL('../balancing'))                
+            except: redirect(URL('../balancing'))
 
         # convert sbtab to sbml
         try:
@@ -809,7 +809,7 @@ def balancing():
                                        'onverted to SBML.')
             redirect(URL('../../../pbnew/default/balancing'))
             try: redirect(URL('../default/balancing'))
-            except: redirect(URL('../balancing'))  
+            except: redirect(URL('../balancing'))
 
         # check out prior file if available
         try:
@@ -818,7 +818,7 @@ def balancing():
                 for v in validity:
                     session.warnings_fl.append(v)
             session.priors.append(sbtab_prior)
-            session.prior_names.append('embedded_prior.tsv')            
+            session.prior_names.append('embedded_prior.tsv')
             session.prior = sbtab_prior
             session.prior_name = 'embedded_prior.tsv'
         except:
@@ -887,7 +887,7 @@ def balancing():
                                        '.' % (session.prior_name))
             redirect(URL('../../../pbnew/default/balancing'))
             try: redirect(URL('../default/balancing'))
-            except: redirect(URL('../balancing'))           
+            except: redirect(URL('../balancing'))
 
         # 2: makeSBtab (either from an empty SBtab or from a given SBtab)
         if not sbtab_data:
@@ -906,7 +906,7 @@ def balancing():
                 try:
                     redirect(URL('../default/balancing'))
                 except:
-                    redirect(URL('../balancing')) 
+                    redirect(URL('../balancing'))
         else:
             try:
                 reader = libsbml.SBMLReader()
@@ -922,7 +922,7 @@ def balancing():
                                            '.' % (session.sbtab_fl_name))
                 redirect(URL('../../../pbnew/default/balancing'))
                 try: redirect(URL('../default/balancing'))
-                except: redirect(URL('../balancing')) 
+                except: redirect(URL('../balancing'))
 
         # 3: fill them in the SBtab file
         try: pseudo = bool(session.parameter_dict['use_pseudo_values'])
@@ -942,7 +942,7 @@ def balancing():
                                        '.' % (session.prior_name))
             redirect(URL('../../../pbnew/default/balancing'))
             try: redirect(URL('../default/balancing'))
-            except: redirect(URL('../balancing'))       
+            except: redirect(URL('../balancing'))
 
         # 4: construct parameter dictionary
         if 'temperature' not in session.parameter_dict.keys():
@@ -950,7 +950,7 @@ def balancing():
         else: session.parameter_dict['temperature'] = \
             float(session.parameter_dict['temperature'])
         if 'ph' not in session.parameter_dict.keys():
-            session.parameter_dict['ph'] = 7        
+            session.parameter_dict['ph'] = 7
         else:
             session.parameter_dict['ph'] = float(session.parameter_dict['ph'])
 
@@ -981,19 +981,19 @@ def balancing():
                                        'iles.')
             redirect(URL('../../../pbnew/default/balancing'))
             try: redirect(URL('../default/balancing'))
-            except: redirect(URL('../balancing')) 
+            except: redirect(URL('../balancing'))
 
         # 7: fill the model with the parameters and the kinetics
         try:
-            try: param = session.parameter_dict['parametrisation'] 
+            try: param = session.parameter_dict['parametrisation']
             except: param = 'hal'
             try: prefac = session.parameter_dict['enzyme_prefactor']
             except: prefac = True
-            try: inh = session.parameter_dict['default_inh'] 
+            try: inh = session.parameter_dict['default_inh']
             except: inh = 'complete_inh'
             try: act = session.parameter_dict['default_act']
             except: act = 'complete_act'
-            try: overwrite = session.parameter_dict['overwrite_kinetics'] 
+            try: overwrite = session.parameter_dict['overwrite_kinetics']
             except: overwrite = True
             kineticizer_cs = kineticizer.KineticizerCS(sbml_model, sbtab_final,
                                                        param, prefac, inh, act,
@@ -1159,7 +1159,7 @@ def show_sbml2():
 def show_sbtab():
     '''
     function that converts SBtab file to HTML in order to display it in browser
-    '''    
+    '''
     try:
         sbtab = session.sbtabs[int(request.args(0))]
     except: return 'The requested SBtab file cannot be loaded.'
@@ -1172,7 +1172,7 @@ def show_sbtab():
 def show_sbtab2():
     '''
     function that converts SBtab file to HTML in order to display it in browser
-    '''    
+    '''
     try:
         sbtab = session.result_sbtab[int(request.args(0))]
         filename = session.result_sbtab_name[int(request.args(0))]
@@ -1186,7 +1186,7 @@ def show_sbtab2():
 def show_log():
     '''
     function that converts log file to HTML in order to display it in browser
-    '''      
+    '''
     try:
         log_name = 'log_file.txt'
         log_file = session.log
@@ -1202,7 +1202,7 @@ def show_sbtab_fl():
     '''
     function that converts fast lane SBtab file to HTML
     in order to display it in the browser
-    '''    
+    '''
     try:
         file_name = session.sbtab_fl_names[int(request.args(0))]
     except: return 'The requested SBtab file cannot be loaded.'
@@ -1217,7 +1217,7 @@ def show_prior():
     '''
     function that converts prior SBtab file to HTML
     in order to display it in the browser
-    '''    
+    '''
     try:
         sbtab_prior = session.priors[int(request.args(0))]
     except: return 'The requested prior table cannot be loaded.'
@@ -1231,7 +1231,7 @@ def show_sbtab_conf():
     '''
     function that converts configure SBtab file to HTML
     in order to display it in the browser
-    '''    
+    '''
     try:
         sbtab_config = session.config_file
     except: return 'The requested config table cannot be loaded.'
@@ -1244,7 +1244,7 @@ def show_sbtab_conf():
 def download_sbtab():
     '''
     function for download of SBtab files
-    '''    
+    '''
     response.headers['Content-Type'] = 'text/csv'
     attachment = 'attachment;filename=' + \
                  session.result_sbtab_name[int(request.vars.download_button_sbtab)]
@@ -1267,7 +1267,7 @@ def download_sbtab():
 def download_sbml():
     '''
     function for download of SBML files
-    ''' 
+    '''
     response.headers['Content-Type'] = 'text/xml'
     attachment = 'attachment;filename=' + \
                  session.sbml_names[int(request.vars.download_button_sbml)]
@@ -1282,7 +1282,7 @@ def download_sbml():
 def download_log():
     '''
     function for download of log files
-    ''' 
+    '''
     response.headers['Content-Type'] = 'text/csv'
     attachment = 'attachment;filename=' + session.sbml_name[:-4] + \
                  '_balancing_log.txt'
@@ -1310,6 +1310,7 @@ def user():
     to decorate functions that need access control
     """
     return dict(form=auth())
+
 
 @cache.action()
 def download():
