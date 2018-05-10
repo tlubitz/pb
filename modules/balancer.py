@@ -1870,12 +1870,12 @@ class ParameterBalancing:
 
                 # second: fill the row with the balanced values
                 if row[0] in self.thermodynamics:
-                    row[3] = str(format(float(means[row_number]), '.4f'))
+                    row[3] = str(float(format(float(means[row_number]), '.4f')))
                     row[5] = 'NaN'
                     row[6] = 'NaN'
                 else:
-                    row[3] = str(format(numpy.exp(float(self.x_post[row_number])),
-                                        '.4f'))
+                    row[3] = str(float(format(numpy.exp(float(self.x_post[row_number])),
+                                        '.4f')))
                     row[5] = str(float(format(numpy.exp(float(self.x_post[row_number])),
                                         '.4f')))
                     row[6] = str(float(format(numpy.exp(float(self.stds_log_post[row_number])),
