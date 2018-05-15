@@ -595,6 +595,9 @@ def balancing():
                 session.warnings_sbml.append('Error: The SBML file %s could no'
                                              't be processed properly'
                                              '.' % (sbml_filename))
+                session.warnings_sbtab.append('Error: The SBtab file %s could no'
+                                             't be processed properly'
+                                             '.' % (sbtab_filename))
                 try: redirect(URL('../default/balancing'))
                 except: redirect(URL('../balancing'))
 
