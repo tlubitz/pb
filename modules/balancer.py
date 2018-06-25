@@ -835,7 +835,6 @@ class ParameterBalancing:
                 log_means.append(float(mean))
                 if float(stds[i]) < 0.05: log_stds.append(0.05)
                 else: log_stds.append(float(stds[i]))
-                log_stds.append(float(stds[i]))
             else:
                 term = numpy.log(1 + (numpy.square(float(stds[i])) / \
                                       numpy.square(float(mean))))
