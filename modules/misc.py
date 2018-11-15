@@ -736,6 +736,7 @@ def tsv_to_html(sbtab, filename=None):
 	<!-- simple right aligned list-->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	  <ul class="nav navbar-nav navbar-right">
+            <li> <a href="../../static/css/css_template/gettingstarted.html" title="Getting started">Getting Started</a></li>
 	    <li> <a href="../../default/balancing.html" title="Go to online balancing">Online Balancing</a></li>
 	    <li> <a href="../../static/css/css_template/documentation.html" title="Documentation and Manuals">Documentation</a></li>
 	    <li> <a href="../../static/css/css_template/download.html" title="Installation and Downloads">Download</a></li>

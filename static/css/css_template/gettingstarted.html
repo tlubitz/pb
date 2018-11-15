@@ -74,9 +74,14 @@
 		You can employ Parameter Balancing on this website in the
 		<a href="../../../default/balancing.html" title="Go to online balancing">Online Balancing</a>
 		section. <i>How</i> it is employed is shown in this tutorial. First, we will show you what
-		<a href="#files">sorts of files</a> you will need to provide. Next, you will see how the
-		<a href="#ob">online balancing</a> is performed. Lastly, we will explain the
-		<a href="#op">output files</a>.
+		<a href="#files">sorts of files (1)</a> you will need to provide. Next, you will see how the
+		<a href="#ob">online balancing (2)</a> is performed. Lastly, we will explain the
+		<a href="#op">output files (3)</a>.
+	      </p>
+	      <p>
+		If you are looking for an explanation on how to embed parameter balancing in your own
+		programming workflows or want to have a look at the underlying Python 3 source code,
+		please go to our <a href="https://github.com/tlubitz/parameter_balancing">Parameter Balancing Github</a> page.
 	      </p>
 	    </div>
 	    <div class="col-sm-3"></div>
@@ -88,13 +93,14 @@
 	<div class="container-fluid bg-3 text-center">
 	  <div class="row">
 	    <div class="col-sm-3"></div>
-	    <div class="col-sm-6" style="text-align:left;">
+	    <div class="col-sm-6" style="text-align:left;line-height:2;">
 	      <header>
 		<h3>1. What will I need in order to perform Parameter Balancing?</h3>
 	      </header>
 
 	      <p>
-		(Click on buttons to expand information)
+		Your data for Parameter Balancing needs to be provided in the Systems Biology standard formats
+		SBML and/or SBtab. Please click on the buttons to read the details.
 	      </p>
 	      
 	      <p style="width:50%">
@@ -107,7 +113,7 @@
 		  <a href="https://www.sbtab.net">SBtab</a> format:
 		  <ul class="list-group">
 		    <li class="list-group-item">
-		      (a) <strong>SBML</strong> is an established Systems Biology standard format which comes in .xml format.
+		      (a) <a href="http://sbml.org/Main_Page"><strong>SBML</strong></a> is an established Systems Biology standard format which comes in .xml format.
 		      Models in SBML can be generated with a multitude of
 		      <a href="http://sbml.org/SBML_Software_Guide/SBML_Software_Summary">SBML software tools</a>,
 		      the most commonly used ones probably being <a href="http://copasi.org/">COPASI</a> and
@@ -117,22 +123,34 @@
 		      you can have a look at our SBML example files in our <a href="download.html#mds">Downloads</a> section.
 		      </li>
 		    <li class="list-group-item">
-		      (b) <strong>SBtab</strong> is a spreadsheet-based Systems Biology standard format for the provision of
+		      (b) <a href="https://www.sbtab.net"><strong>SBtab</strong></a> is a spreadsheet-based Systems Biology standard format for the provision of
 		      various types of data. You can e.g. describe a kinetic metabolic model by building SBtabs for the inherent
 		      reactions, metabolites, compartments, and quantities. A small model of the phosphofructokinase reaction
 		      could be presented in SBtab format as such (the colors are not part of the format but only for the
 		      ease of display):
 		      <p style="text-align:center!important;">
-			<img width="80%" src="img/sbtab_model_example.png" alt="Parameter Balancing Logo" style="margin-top:50px;margin-bottom:50px;border-style: solid;border-width: 2px;">
+			<figure style="margin-bottom:30px;">
+			  <a href="img/sbtab_model_example.png" target="_blank">
+			    <img width="80%" src="img/sbtab_model_example.png" alt="Parameter Balancing Logo" style="margin-top:20px;border-style: solid;border-width: 2px;">
+			  </a>
+			  <figcaption style="font-style:italic;">
+			    Three SBtab tables describing one kinetic model (the colours are for visualisation purposes only, not part of the format)
+			  </figcaption>
+			</figure>
 		      </p>
-		      The minimalistic example above shows an SBtab of the TableType "Compartment", which defines a compartment
+		      The minimalistic example above shows a spreadsheet file consisting of three SBtabs. Each SBtab begins with a
+		      declaration row (preceded with "!!SBtab", coloured in dark blue), which defines the required table attributes. Special focus is on
+		      the attribute TableType, which defines what kind of data are presented in the SBtab. After the declaration
+		      row follow the column headers (coloured in bright blue), each of which are preceded by a single exclamation mark (e.g. "!ID"). <br>
+		      The topmost SBtab has the
+		      TableType "Compartment" and defines a single compartment
 		      with the ID <strong>c</strong>, a name <strong>cytosol</strong> and the size <strong>1</strong>. Below that,
-		      an SBtab of the TableType "Compound" provides a list of metabolites in the model including their IDs, names,
+		      the second SBtab of the TableType "Compound" provides a list of metabolites in the model including their IDs, names,
 		      localisations, charge, and if they are constant. The last SBtab in the example has the TableType "Reaction"
 		      and describes the Phosphofructokinase reaction. Note that this is only an excerpt of the many possibilities
-		      to define models and their entities in SBtab. You can find more information on SBtabs capabilities in the
+		      to define models and their entities in SBtab. You can find more information on the SBtab format and its capabilities in the
 		      <a href="https://www.sbtab.net/sbtab/default/specification.html">SBtab specificiation</a>.<br>
-		      SBtab files are simple spreadsheet files that can be created with every text editor or spreadsheet tool (such
+		      In general, SBtab files are simple spreadsheet files that can be created with every text editor (such as Notepad) or spreadsheet tool (such
 		      as MS Office or LibreOffice). The allowed formats are .csv, .tsv, and .xls - we recommend the usage of the
 		      tab-separated value format .tsv. You can find example files in our <a href="download.html#mds">Downloads</a> section.
 		    </li>
@@ -152,7 +170,14 @@
 		    reaction above it could look as such:
 		  </p>
 	          <p style="text-align:center!important;">
-		    <img width="80%" src="img/sbtab_data_example.png" alt="Parameter Balancing Logo" style="margin-top:50px;margin-bottom:50px;border-style: solid;border-width: 2px;">
+		    <figure style="margin-bottom:30px;">
+		      <a href="img/sbtab_data_example.png" target="_blank">
+			<img width="80%" src="img/sbtab_data_example.png" alt="Parameter Balancing Logo" style="margin-top:20px;border-style: solid;border-width: 2px;">
+		      </a>
+		      <figcaption style="font-style:italic;">
+			SBtab table "Quantity" with experimental data (the colours are for visualisation purposes only, not part of the format)
+		      </figcaption>
+		    </figure>
 		  </p>
 		  <p>
 		    The example file shows enzyme concentrations, inhibitory constants, concentrations (metabolites), standard chemical potentials,
@@ -160,7 +185,7 @@
 		    sources (see column "Reference"). There may be multiple values for one parameter, which are averaged during the Parameter
 		    Balancing. It is important to link the data correctly to the model entities, which is realised via the columns
 		    "Reaction:SBML:reaction:id" and "Compound:SBML:species:id", which must hold the corresponding SBML identifiers of the reactions
-		    or species. Also note that some parameters (such as concentration) are only linked to an SBML species identifiers, others (such
+		    or species. Also note that some parameters (such as concentration) are only linked to an SBML species identifier, others (such
 		    as equilibrium constants) are only linked to SBML reaction identifiers, and finally some (such as Michaelis constants) are
 		    linked to both SBML species and reaction identifiers. Please make sure that the columns "Mean" and "Unit" are filled; if they
 		    are not, you can just as well omit the whole table row.
@@ -176,7 +201,7 @@
 	      </p>
 	      
 	      <p style="width:50%">
-		<a class="btn btn-primary" data-toggle="collapse" href="#config" role="button" aria-expanded="false" aria-controls="config">
+		<a class="btn btn-primary" data-toggle="collapse" href="#config" role="button" aria-expanded="false" aria-controls="config" id="conf">
 		  C: A configuration file (optional, for experienced users)
 		</a>
 		<div class="collapse" id="config" style="line-height:2;">
@@ -184,8 +209,16 @@
 		    Parameter Balancing is a highly complex modelling tool that can be configured to match the user's individual
 		    requirements. Thus, users can provide an SBtab file of the TableType "PbConfig" which should look as follows:
 		  </p>
+
 	          <p style="text-align:center!important;">
-		    <img width="80%" src="img/sbtab_config_example.png" alt="Parameter Balancing Logo" style="margin-top:50px;margin-bottom:50px;border-style: solid;border-width: 2px;">
+		    <figure style="margin-bottom:30px;">
+		      <a href="img/sbtab_config_example.png" target="_blank">
+			<img width="80%" src="img/sbtab_config_example.png" alt="Parameter Balancing Logo" style="margin-top:20px;border-style: solid;border-width: 2px;">
+		      </a>
+		      <figcaption style="font-style:italic;">
+			The SBtab table "PbConfig" defines configuration options for the Parameter Balancing (the colours are for visualisation purposes only, not part of the format)
+		      </figcaption>
+		    </figure>
 		  </p>
 		  <p>
 		    The configuration options are:
@@ -684,7 +717,9 @@ law?</li>
 		    individual requirements. Please only do so carefully as it has significant effects on
 		    the Parameter Balancing. Also, read the corresponding section 2.1.2 from the
 		    <a href="https://www.parameterbalancing.net/pb/static/files/manual.pdf" target="_blank">Parameter
-		    Balancing manual</a>.
+		    Balancing manual</a> and the <a href="documentation.html#quant">Chapter on Biochemical Quantities</a> in the Documentation Section.
+		    Users can provide an alternative table for the prior distributions in SBtab format. We
+		    recommend to use the <a href="download.html">Default Prior SBtab</a> as a starting point for making alterations.
 		  </p>		  
 		</div>
 	      </p>
@@ -722,11 +757,11 @@ law?</li>
 		<img width="80%" src="img/online_balancing_02.png" alt="Parameter Balancing Logo" style="margin-top:50px;margin-bottom:50px;border-style: solid;border-width: 2px;">
 	      </p>
 	      <p>
-		Here, you can upload separate input files for the Parameter Balancing. The SBML file for the
+		In this option, you can upload separate input files for the Parameter Balancing. The SBML file for the
 		kinetic model is obligatory, all other files are optional. All file formats and contents are
 		described in Part 1 of this tutorial. After you have uploaded your SBML file, you can simply
 		click on the "Balance Parameters" button on the bottom of the column. The software will
-		read all your submitted files automatically and redirect you to the download area.
+		read all your submitted files automatically, perform the Parameter Balancing and redirect you to the download area.
 	      </p>
 	      <strong>Option 2: Single Input File</strong>
 	      <p style="text-align:center!important;">
@@ -740,12 +775,13 @@ law?</li>
 		prior distribution files) to the end of the model SBtab (be aware: do not add them as separate
 		work sheets, but add them below the other SBtabs in the spreadsheet file). You can have a look at
 		our example files in the <a href="download.html" title="Installation and Downloads">Download section</a>
-		(focus on the files that say "SBtab format, single input file"). If you are interested in how you can
+		(focus on the files that say "SBtab format, single input file"). <br>
+		If you are interested in how you can
 		automatically translate your SBML file into the SBtab format (and vice versa), you can have a look at the
 		<a href="https://www.sbtab.net/sbtab/default/converter.html">SBML <-> SBtab</a> converter
 		on the SBtab homepage. We want to remind you that we recommend .tsv files as preferred SBtab format. <br>
 		After the file is uploaded you can start the Parameter Balancing by clicking the "Balance Parameters" button
-		on the bottom of the column. You will be redirected to the download area.
+		on the bottom of the column. Parameter Balancing is performed and you will be redirected to the Download area.
 	      </p>
 	    </div>
 	    <div class="col-sm-3"></div>
@@ -773,7 +809,7 @@ law?</li>
 		of the page. The default behaviour will cause the old kinetic rate laws of the model to be overwritten with
 		common modular rate laws sporting the balanced parameter set. This behaviour can be influenced in several
 		ways by using an options file in the Parameter Balancing. You can choose the parametrisation, enzyme
-		behaviour, and more (see Part 1C of this tutorial). By clicking on the name of the file you can display
+		behaviour, and more (see <a href="gettingstarted.html#conf">Part 1C of this tutorial</a>). By clicking on the name of the file you can display
 		the SBML source code in a new tab.
 	      </p>
 	      <p>
@@ -782,6 +818,10 @@ law?</li>
 		balanced model can be found in the column "Mode", which are point estimates from the computed posterior
 		distribution. In order to understand the full scope of the output file we would like to refer you to Section
 		2.2.3 of the <a href="https://www.parameterbalancing.net/pb/static/files/manual.pdf" target="_blank">Parameter Balancing manual</a>.
+	      </p>
+	      <p>
+		Finally, you can download the whole bundle of output information in one single SBtab file: The kinetic model, the quantities, the
+		balanced parameter set and the employed prior distribution. This is provided as <i>modelname</i>_balanced_model.tsv.
 	      </p>
 	    </div>
 	    <div class="col-sm-3"></div>
@@ -806,7 +846,7 @@ law?</li>
 		All required file formats and exemplary file contents can be found in the
 		<a href="download.html" title="Installation and Downloads">Download Section</a>. And finally, please do
 		not hesitate to contact <a href="contact.html" title="Contact">Wolfram Liebermeister
-		and Timo Lubitz</a> in case of questions, bugs, or feature rxequests. We are always happy to hear user feedback.
+		and Timo Lubitz</a> in case of questions, bugs, or feature requests. We are always happy to hear user feedback.
 	      </p>
 	    </div>
 	    <div class="col-sm-3"></div>
