@@ -53,20 +53,30 @@
       </div>
     </header>
 
-    <main>
+    <main style="line-height:2;">
       <article>
 	<div class="container-fluid bg-3 text-center">
 	  <div class="row">
 	    <div class="col-sm-2"></div>
 	    <div class="col-sm-8">
 	      <header>
-		<h3>Parameter balancing standard options</h3>
+		<h3>Parameter Balancing default configuration files</h3>
 	      </header>
+	      <p style="text-align:left;">
+		Parameter Balancing is an application with many configuration options and its Bayesian estimation
+		relies on the provision of a prior distribution. All these information are provided per default 
+		in our software. Experienced users may wish to change the configuration options or provide
+		an alternative prior distribution which better suits their individual needs. They can provide this
+		information in form of SBtab files. We suggest to first read Section 2.1.2 in the
+		<a href="../../files/manual.pdf">Parameter Balancing Manual</a> and then use the default SBtab files
+		as a starting point for making alterations:
+	      </p>
+	      
 	      <p>
-		<a href="../../files/default_files/pb_prior.tsv">Prior file for model parameters (SBtab format)</a>
+		<a href="../../files/default_files/pb_prior.tsv">SBtab file with default prior distributions</a>
 	      </p>
 	      <p id="config">
-		<a href="../../files/default_files/pb_options.tsv">Options file for parameter balancing (SBtab format)</a>
+		<a href="../../files/default_files/pb_options.tsv">SBtab file with default configuration options</a>
 	      </p>
 	    </div>
 	    <div class="col-sm-2"></div>
@@ -74,80 +84,6 @@
 	</div>
       </article>
 
-      <article>
-	<div class="container-fluid bg-3 text-center">
-	  <div class="row">
-	    <div class="col-sm-2"></div>
-	    <div class="col-sm-8" align="left">
-	      <header>
-		<h3 align="center">Software</h3>
-	      </header>
-	      <p>
-		Parameter balancing is a tool for metabolic modelling in systems biology.
-		It is implemented in Python3 and its code underlies the PEP8 guidelines.
-		These are the possible ways of employing parameter balancing for your project:
-	      </p>
-	      <ol>
-		<li>
-		  <strong>The online version </strong>
-		  The tool can be employed via www.parameterbalancing.net. All required knowledge can be found here on the webpage.
-		</li>
-		<li>
-		  <strong>Parameter balancing as Pypi package and commandline tool</strong>
-		  <p>
-		  To install Parameter Balancing as a Python3 package, first of all you need Python3.
-		  Next, you will need the pip3 installer. You can find information on how to do this
-		  here: https://pip.pypa.io/en/stable/installing/.
-		  Afterwards, install Parameter Balancing by typing in your command line:
-		  <pre>sudo pip3 install pbalancing</pre>
-		  This will also install libsbml and tablib on your computer if these libraries are missing.
-		  You can now employ Parameter Balancing as a Python3 package by, e.g., writing a script such as
-
-		  <pre>from pbalancing import parameter_balancing<br>parameter_balancing.parameter_balancing_wrapper('model.xml')</pre>
-
-		  In this example case, 'model.xml' is the file name of an SBML model. Further optional
-		  arguments are an SBtab parameter file, an SBtab prior distribution file, and an SBtab
-		  configuration file (example files at the bottom of this page). 
-		  </p>
-		  <p>
-		    To run parameter balancing as a commandline tool, the package needs to be installed as explained above.
-		    Then, it can be executed in the commandline as follows:
-		    <pre> python3 -m pbalancing.parameter_balancing model.xml</pre>
-		    where model.xml corresponds to the path of your SBML model. It is also possible to provide further
-		    input files, such as an SBtab parameter files (.tsv), an SBtab prior information file (.tsv),
-		    and an SBtab options file (.tsv) for the configuration of parameter balancing. Providing complete
-		    file information would look like this:
-		    <pre> python3 -m pbalancing.parameter_balancing model.xml --sbtab_data data_file.tsv --sbtab_prior prior_file.tsv --sbtab_options options_file.tsv</pre>
-		    You can create a log file by setting the flag -l, you can use pseudo values to account for a lack
-		    of data by setting the flag -p, you can watch program outputs on your commandline by setting the
-		    flag -v. Information on the SBtab format can be found on www.sbtab.net, more information on the
-		    mentioned file types can be found in the <a href="../../files/manual.pdf">parameter balancing manual</a>, and example files can be found at the
-		    bottom of this page.
-		  </p>
-	  	</li>
-		<li>
-		  <strong>Python code for parameter balancing</strong>
-		  <a href="https://github.com/tlubitz/parameter_balancing">Python3 source code</a>
-		  for parameter balancing can be freely downloaded. Please see
-		  the instructions that come with the code.
-		</li>
-		<li>		  
-		  <strong>Web2py application</strong>
-		  The web2py application for parameter balancing can be freely downloaded from the
-		  <a href="https://bitbucket.org/tlubitz/pb">Github repository</a>. Please see
-		  the instructions that come with the code.
-		</li>
-		<li>
-		  <strong>Matlab code for parameter balancing</strong>
-		  MATLAB code for parameter balancing is included in the <a href="https://github.com/liebermeister/mnt/">Metabolic Networks
-		    Toolbox</a>. For more information, install the MNT toolbox and type 'help mnt_parameter_balancing'.
-		</li>
-	      </ol>
-	    </div>
-	    <div class="col-sm-2"></div>
-	  </div>
-	</div>
-      </article>
 
       <article>
 	<div class="container-fluid bg-3 text-center">
@@ -158,17 +94,17 @@
 		<h3>Models and data sets</h3>
 	      </header>
 	      <p style="text-align:left;">
-		This collection of models was assembled as an exemplary starting point for parameter balancing. They are
+		This collection of models was assembled as an exemplary starting point for Parameter Balancing. They are
 		mainly taken from the BioModels Database, others taken from chosen publications. Please note that these
 		models are not altered from their original state in order to make them more compliant to the parameter
-		balancing procedure. As stated in the FAQ, parameter balancing does not work well with, e.g., biomass
+		balancing procedure. As stated in the FAQ, Parameter Balancing does not work well with, e.g., biomass
 		reactions, transport reactions, or enzymes that are modelled as species (instead of parameters). Furthermore,
 		if modifiers lack characterising SBO terms, they cannot be identified as either catalyst or inhibitor. If
-		you properly want to employ the models below for parameter balancing, it is advisable to keep these remarks in mind.<br>
+		you properly want to employ the models below for Parameter Balancing, it is advisable to keep these remarks in mind.<br>
 		The corresponding parameter collections are mainly supposed to exemplify the data format SBtab. Their origins are
 		given in the file itself. They are by no means considered to be exhaustive.
 	      </p>
-	      <div class="bg-2">
+	      <div class="bg-2" style="padding:10px;">
 		<h4> Phosphofructokinase Reaction (PFK)</h4> 
 		Our SBML model of the Phosphofructokinase reaction was constructed
 		from the KEGG
@@ -183,7 +119,7 @@
 		</ul>
 	      </div>
 
-	      <div class="bg-2">
+	      <div class="bg-2" style="padding:10px;">
 		<h4> Glycolysis (Teusink et al, 2000)</h4>
     
 		Teusink's glycolysis model (<a href="http://www.ebi.ac.uk/biomodels-main/BIOMD0000000064">Teusink et al, (2000)</a>)
@@ -197,7 +133,7 @@
 		</ul>
 	      </div>
 
-	      <div class="bg-2">
+	      <div class="bg-2" style="padding:10px;">
     		<h4>Glycolysis model (Hynne et al., 2001)</h4>
    		Hynne's glycolysis model (<a href="http://www.ebi.ac.uk/biomodels-main/BIOMD0000000061">Hynne et al., 2001</a>) was created to describe glycolysis in yeast at
 		the onset of metabolic oscillations. In the encoded version from
@@ -213,7 +149,7 @@
 		</ul>
 	      </div>
 	      
-	      <div class="bg-2">
+	      <div class="bg-2" style="padding:10px;">
 		<h4>Pancreatic Beta Cell Model  (Jiang et al.,2007)</h4>
 		Jiang's model of the glucose-stimulated secretion system in
 		pancreatic beta cells (<a href="http://www.ebi.ac.uk/biomodels-main/BIOMD0000000239">Jiang
@@ -227,7 +163,7 @@
 		</ul>
 	      </div>
 
-	      <div class="bg-2">
+	      <div class="bg-2" style="padding:10px;">
 		<h4>E.coli Model (Noor et al.,2016)</h4>
 		Noor's model of E.coli (<a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005167">Noor et al.,2016</a>).
 
@@ -237,7 +173,7 @@
 		</ul>
 	      </div>
 
-	      <div class="bg-2">
+	      <div class="bg-2" style="padding:10px;">
 		<h4>E.coli Model (Wortel et al.,2016)</h4>
 		Wortel's model of E.coli (<a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006010">Wortel et al.,2018</a>).
 
@@ -247,12 +183,12 @@
 		</ul>
 	      </div>
 
-	      <div class="bg-2">
+	      <div class="bg-2" style="padding:10px;">
 		<h4>E coli central metabolism</h4>
 		Additional data files concerning E. coli central metabolism can be found <a href="http://www.metabolic-economics.de/enzyme-cost-minimization/ecoli_ccm.html">here</a>.
 	      </div>
 	      
-	      <div class="bg-2">
+	      <div class="bg-2" style="padding:10px;">
 		<h4>A collection of transformed standard Gibbs free energies of reaction</h4>
 		The collection is an extract of the <a href="http://equilibrator.weizmann.ac.il/">eQuilibrator</a> project and was kindly provided by Elad Noor. It can be downloaded <a href="../../files/kegg_reactions_CC_ph7.0.tsv">here</a>.
 	      </div>
@@ -271,7 +207,7 @@
 	      <header>
 		<h3>Data provenance</h3>
 	      </header>
-	      <div class="bg-2">
+	      <div class="bg-2" style="padding:10px;">
 		Data for the examples were collected from the following public data
 		sources:
 		<ol class="list-group" align="left">
