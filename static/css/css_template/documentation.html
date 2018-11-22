@@ -1158,6 +1158,33 @@ In Parameter Balancing, some types of parameters are treated as "basic" (e.g., s
 		  and standard deviation of the logarithmic parameter values (assumed to follow a normal distribution).
 		</li>
 		<li style="margin-bottom:8px;">
+		  <strong>Is Parameter Balancing limited to metabolic models or could it be applied to other biological models?</strong>
+		  A specific problem in metabolic systems (which, in Parameter Balancing, is turned into an advantage) is the fact
+		  that kinetic constants are dependent through Wegscheider conditions (for equilibrium constants) and Haldane
+		  relationships (between equilibrium constants, turnover rates, and Michaelis-Menten constants); and, given the
+		  flux directions, equilibrium constants and metabolite concentrations are dependent as well. This is the reason
+		  why in Parameter Balancing those parameters (and also state variables such as metabolite concentrations) are not
+		  estimated or sampled independently, but using a linear dependence scheme in the background. Some parameters, e.g.
+		  the allosteric inhibition and activation constants, are independent of all other parameters and can be manually
+		  chosen by the modeller. The Parameter Balancing would not be necessary in this case, and they are only included
+		  in our software for convenience. Coming back to non-metabolic systems: even though the laws of thermodynamics
+		  apply to any biochemical network (including, for example, signalling pathways), thermodynamic constraints are
+		  usually not considered in these models: in particular, many reactions (e.g., phosphorylation by kinases) are
+		  described by irreversible kinetics, which renders Wegscheider conditions and Haldane relationships obsolete.
+		  As in the case of allosteric rate constants, applying Parameter Balancing is simply not necessary, and the
+		  different model parameters can be chosen at will, without having to care about (and without having the
+		  opportunity of exploiting) their interdependencies.<br>
+		  Aside from from these theoretical considerations, there is also a practical answer. The formalism of Parameter
+		  Balancing applies to any sorts of model parameters and to any sorts of dependencies between them, as long as
+		  these dependencies are linear (either between the model parameters themselves, or between their logarithms).
+		  The user can customise our software to handle any parameters that satisfy this condition by editing the “Prior
+		  distribution” file. The necessary steps are: (i) identify which new parameter types  should be used, and
+		  whether they are “additive” (satisfying linear relationships) or “multiplicative” (satisfying linear
+		  relationships on logarithmic scale).  (ii) Choose a subset of parameter types to be “independent”, and specify
+		  the dependencies of all other parameter types in the form of symbolic matrices (column “MatrixInfo” in the
+		  “Prior distribution” file). (iii) Modify the “Prior distribution” file by adding all the new information.
+		</li>
+		<li style="margin-bottom:8px;">
 		  <b>Who can answer my other questions?</b>
 		  Please refer to the <a href="/pb/static/css/css_template/contact.html">Contact Page</a>.
 		</li>
