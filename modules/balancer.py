@@ -56,6 +56,9 @@ class ParameterBalancing:
         # initialise log file
         self.log = '%s\n\n' % (time.asctime())
 
+        # get time stamp
+        self.starting_time = time.time()
+        
         # rudimentary validity check and model initialisation
         if req:
             try: self.model.getListOfSpecies()
@@ -1094,9 +1097,19 @@ class ParameterBalancing:
         C_string = self.make_cpost_string()
         shannons = self.get_shannons()
 
+        self.compute_running_time()
+        
         return (sbtab_new, self.mean_post, self.q_post, C_string, self.C_post,
                 self.Q, shannons, self.log)
 
+    def compute_running_time(self):
+        '''
+        compute overall running time in seconds from __init__ to return of results
+        '''
+        end_time = time.time()
+        running_time = end_time - self.starting_time
+        self.log += 'Total running time (s): %s\n' % running_time        
+    
     def get_sheet(self):
         '''
         get the sheet that tells us, how to build up which matrix

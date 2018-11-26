@@ -1179,7 +1179,7 @@ def show_log():
 
     try:
         delimiter = '\t'
-        return misc.tsv2html(log_file, log_name, delimiter)
+        return misc.tsv_to_html(log_file, log_name)
     except: return 'The requested log file cannot be displayed.'
 
 
