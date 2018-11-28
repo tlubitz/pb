@@ -67,6 +67,22 @@ def check_delimiter(sbtab_file):
     return sep
 
 
+def size_warning(sbml_file):
+    '''
+    check whether a given sbml file has more than 300 reactions and 
+    then yield a warning message for the online interface
+    '''
+    reader = libsbml.SBMLReader()
+    sbml = reader.readSBMLFromString(sbml_file)
+    sbml_model = sbml.getModel()
+    if sbml_model.getNumReactions() > 300:
+        return ('Warning: The model has more than 300 reactions, which may'\
+                ' slow down the computation time significantly. Proceed'\
+                ' with care.')
+    else: return False
+    
+
+
 def valid_prior(sbtab_prior):
     '''
     if the given SBtab file is a prior for parameter balancing, it needs to be

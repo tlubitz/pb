@@ -81,7 +81,7 @@ def balancing():
 
     sbmlform = SQLFORM.factory(Field('File', 'upload', uploadfolder="/tmp",
                                      label='Upload SBML file (.xml)',
-                                     requires=IS_LENGTH(5242880, 1,
+                                     requires=IS_LENGTH(10242880, 1,
                                                         error_message='Max upload size: 5MB')))
 
     # file is uploaded, checked, and added to the list; variables are declared
@@ -110,6 +110,9 @@ def balancing():
                 session.sbml_name = filename
                 session.sbmls.append(session.sbml)
                 session.sbml_names.append(filename)
+                size_warning = misc.size_warning(session.sbml)
+                if size_warning:
+                    session.warnings_sbml.append(size_warning)
         except:
             session.warnings_sbml.append('Error: This is no valid SBML file')
         try: redirect(URL('../../default/balancing'))
