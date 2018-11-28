@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="author" content="Timo Lubitz">
-    <meta name="description"  content="Parameter Balancing Website: Documentation - Find useful knowledge and tips about Parameter Balancing. Also, FAQ are answered here.">
+    <meta name="description"  content="Parameter Balancing Website: Documentation - Find useful knowledge and tips about parameter balancing. Also, FAQ are answered here.">
     
     <!-- this is required for responsiveness -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,19 +63,19 @@
 		<h3>Introduction</h3>
 	      </header>
 	      <p align="left" style="border:1px;border-style:solid;padding:10px;background:#eee;">
-		<strong>Welcome to the Parameter Balancing documentation.</strong> <br>
+		<strong>Welcome to the parameter balancing documentation.</strong> <br>
 		In the leading <a href="documentation.html#ov"><strong>Overview</strong></a> you
-		will find information on what Parameter Balancing is and how it can be used.<br>
+		will find information on what parameter balancing is and how it can be used.<br>
 		For a quick start on the usage of our Online Balancing, please refer to our
 		<a href="gettingstarted.html"><strong>Getting Started Section</strong></a>.<br>
 		You can find the underlying Python3 source code on our
-		<a href="https://github.com/tlubitz/parameter_balancing" target="_blank"><strong>Parameter Balancing Github</strong></a> page.
-		There, you will also find information on how to embed Parameter Balancing in your programming workflows
+		<a href="https://github.com/tlubitz/parameter_balancing" target="_blank"><strong>parameter balancing Github</strong></a> page.
+		There, you will also find information on how to embed parameter balancing in your programming workflows
 		or how to use it via Linux commandline. The information is also found in our <a href="documentation.html#software"><strong>Software Section</strong></a>.<br>
 		Also on this page, you can find detailled information on the
-		<a href="documentation.html#quant"><strong>biochemical quantities</strong></a> employed in Parameter Balancing
-		and have a look at <a href="documentation.html#faq"><strong>Frequently Asked Questions</strong></a> on Parameter Balancing.<br>
-		Finally, have a look into our <a href="/pb/static/files/manual.pdf"><strong>Parameter Balancing User Manual</strong></a>
+		<a href="documentation.html#quant"><strong>biochemical quantities</strong></a> employed in parameter balancing
+		and have a look at <a href="documentation.html#faq"><strong>Frequently Asked Questions</strong></a> on parameter balancing.<br>
+		Finally, have a look into our <a href="/pb/static/files/manual.pdf"><strong>parameter balancing User Manual</strong></a>
 		to have a summary on the method and its applications.
 	      </p>
 	    </div>
@@ -113,8 +113,8 @@
 		<h3>Overview</h3>
 	      </header>
 	      <p align="left">
-		<strong>What is Parameter Balancing?</strong>
-		  Parameter Balancing is a way to determine consistent parameter sets for kinetic models of metabolism.
+		<strong>What is parameter balancing?</strong>
+		  Parameter balancing is a way to determine consistent parameter sets for kinetic models of metabolism.
 		  Inserting experimentally measured values directly into a model will probably yield incomplete or
 		  inconsistent parameter sets, violating the thermodynamic Haldane relationships. Balanced parameter
 		  sets avoid this problem. They are computed based on kinetic constants and other data collected from
@@ -123,19 +123,19 @@
 	      </p>
 
 	      <p align="left">
-		<strong>How can I run Parameter Balancing?</strong>
+		<strong>How can I run parameter balancing?</strong>
 		After preparing your model and data files, you can run
-		Parameter Balancing interactively on this website.
+		parameter balancing interactively on this website.
 		The <a href="gettingstarted.html">Getting Started Section</a>
 		will give a good quick start on that. <br>
 		If you prefer working in the commandline, or if you would like to
-		include Parameter Balancing in your programs and are interested in
-		the source code, the <a href="https://github.com/tlubitz/parameter_balancing" target="_blank">Parameter Balancing Github</a>
+		include parameter balancing in your programs and are interested in
+		the source code, the <a href="https://github.com/tlubitz/parameter_balancing" target="_blank">parameter balancing Github</a>
 		page and our <a href="documentation.html#software">Software Section</a> are of interest to you.
 	      </p>
 	      <p align="left">
 		<strong>Which parameters of a metabolic model can be balanced?</strong>
-		  In general, Parameter Balancing concerns the kinetic and thermodynamic constants in kinetic metabolic models.
+		  In general, parameter balancing concerns the kinetic and thermodynamic constants in kinetic metabolic models.
 		  It can also cover metabolite concentrations, chemical potentials, and reaction Gibbs free energies (or,
 		  equivalently, "reaction affinities" or "driving forces"). Metabolic fluxes cannot be balanced, but they can
 		  be included in the analysis (this is described below). There are different typical application cases:
@@ -144,7 +144,7 @@
 		  <li class="list-group-item">Kinetic constants, where equilibrium constants are fixed and given</li>
 		  <div class="list-group-item-text" style="line-height:2;">This can be done separately
 		    for each individual reaction. If a network is large and equilibrium constants can be predefined (for instance,
-		    by Parameter Balancing), we suggest to split the network into single reactions and to run Parameter Balancing
+		    by parameter balancing), we suggest to split the network into single reactions and to run parameter balancing
 		    separately for every reaction.</div>
 		  <li class="list-group-item">Kinetic constants and equilibrium constants in a network</li>
 		  <li class="list-group-item">Equilibrium constants and concentrations in a network</li>
@@ -153,11 +153,11 @@
 
 	      <p align="left">
 		<strong>What input data are needed?</strong>
-		 Parameter Balancing employs SBML (Systems
+		 Parameter balancing employs SBML (Systems
 		  Biology Markup Language) files or <a href="http://www.sbtab.net/">SBtab files</a> for model structures and
-		  SBtab table files for data and configuration files. Parameter Balancing imports a model (SBML, obligatory) and a
+		  SBtab table files for data and configuration files. Parameter balancing imports a model (SBML, obligatory) and a
 		  data table (SBtab, optional) with experimental data values. Furthermore, tables with information on the prior
-		  distributions and balancing options are possible. Parameter Balancing produces tables with balanced
+		  distributions and balancing options are possible. Parameter balancing produces tables with balanced
 		  parameters (SBtab) and a model with rate laws and balanced parameters included (SBML). Please prepare your SBtab files as
 		  described below. The validity of these files can be checked on the <a href="http://www.sbtab.net/">SBtab website</a>. The quantities
 		  described in your data table will be linked to elements of the SBML model, via the entries in the columns !SBML:reaction:id and
@@ -165,13 +165,13 @@
 		</p>
 	      <p align="left">
 		<strong>General information</strong>
-		Parameter Balancing has been developed at Humboldt Universität Berlin, Charité - Universitätsmedizin Berlin, and at INRA (Institut Nationale de la Recherche Agronomique) Jouy-en_Josas. 		  Parameter Balancing is applied as part of larger workflows in Stanford et al. (<a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079195">Plos One</a>) and Noor et al. (<a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005167">Plos Computational Biology</a>). <br>
+		Parameter balancing has been developed at Humboldt Universität Berlin, Charité - Universitätsmedizin Berlin, and at INRA (Institut Nationale de la Recherche Agronomique) Jouy-en_Josas. 		  Parameter balancing is applied as part of larger workflows in Stanford et al. (<a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079195">Plos One</a>) and Noor et al. (<a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005167">Plos Computational Biology</a>). <br>
 		  Additional information on Systems Biology applications can be found in "Systems Biology: A textbook" by Edda Klipp, Wolfram Liebermeister, Christoph Wierling, and Axel Kowald.
 	      </p>
 	      <p align="left">
-		<strong>Citing the Parameter Balancing method</strong>
-		The concept of Parameter Balancing is described in <a href="http://pubs.acs.org/doi/abs/10.1021/jp108764b">The Journal of Physical Chemistry B</a>.
-		Please cite this publication if you use Parameter Balancing for your research. <br>
+		<strong>Citing the parameter balancing method</strong>
+		The concept of parameter balancing is described in <a href="http://pubs.acs.org/doi/abs/10.1021/jp108764b">The Journal of Physical Chemistry B</a>.
+		Please cite this publication if you use parameter balancing for your research. <br>
 	      </p>
 	    </div>
 	    <div class="col-sm-2"></div>
@@ -186,9 +186,9 @@
 	    <div class="col-sm-2"></div>
 	    <div class="col-sm-8">
 	      <header>
-		<h3 id="wf">How to run Parameter Balancing online</h3>
+		<h3 id="wf">How to run parameter balancing online</h3>
 	      </header>
-	      <p align="left">Parameter Balancing helps you find a consistent parameter set
+	      <p align="left">Parameter balancing helps you find a consistent parameter set
 		for a kinetic model, based on (i) kinetic constants and other data collected from
 		experiments or the literature; (ii) constraints between biochemical quantities due
 		to their definition or the laws of thermodynamics; (iii) assumptions about typical
@@ -217,9 +217,9 @@
 		  the syntax of the prior tables).</div>
 		<div class="list-group-item-text" style="line-height:2;"><strong>4. Prepare your options file (optional).</strong> 
 		  This file can be used to
-		  change settings of the Parameter Balancing algorithm (see <a href="/pb/static/css/css_template/download.html">Download area</a>
+		  change settings of the parameter balancing algorithm (see <a href="/pb/static/css/css_template/download.html">Download area</a>
 		  for example files).</div>
-		<div class="list-group-item-text" style="line-height:2;"><strong>5. Upload the files, run Parameter Balancing, and download the balanced parameters and model.</strong> 
+		<div class="list-group-item-text" style="line-height:2;"><strong>5. Upload the files, run parameter balancing, and download the balanced parameters and model.</strong> 
 		  If the balancing process was successful, you can download
 		  the SBML file with the balanced parameters and convenience
 		  kinetics. Analogously, you can download
@@ -253,7 +253,7 @@
 	      <li style="margin-bottom:8px;">
 		The model can be provided in <a href="http://www.sbml.org/">SBML</a> format.
 	      </li>
-	      <li style="margin-bottom:8px;">Input files for Parameter Balancing must be prepared in the SBtab format.
+	      <li style="margin-bottom:8px;">Input files for parameter balancing must be prepared in the SBtab format.
 		(<a href="/pb/static/css/css_template/download.html">example files</a>).
 	      </li>
 	      <li style="margin-bottom:8px;">
@@ -288,9 +288,9 @@
 		<h3 align="center">Software</h3>
 	      </header>
 	      <p>
-		Parameter Balancing is a tool for metabolic modelling in systems biology.
+		Parameter balancing is a tool for metabolic modelling in systems biology.
 		It is implemented in Python3 and its code underlies the PEP8 guidelines.
-		These are the possible ways of employing Parameter Balancing for your project:
+		These are the possible ways of employing parameter balancing for your project:
 	      </p>
 	      <ol>
 		<li>
@@ -298,15 +298,15 @@
 		  The tool can be employed via www.parameterbalancing.net. All required knowledge can be found here on the webpage.
 		</li>
 		<li>
-		  <strong>Parameter Balancing as Pypi package and commandline tool</strong>
+		  <strong>Parameter balancing as Pypi package and commandline tool</strong>
 		  <p>
-		  To install Parameter Balancing as a Python3 package, first of all you need Python3.
+		  To install parameter balancing as a Python3 package, first of all you need Python3.
 		  Next, you will need the pip3 installer. You can find information on how to do this
 		  here: https://pip.pypa.io/en/stable/installing/.
-		  Afterwards, install Parameter Balancing by typing in your command line:
+		  Afterwards, install parameter balancing by typing in your command line:
 		  <pre>sudo pip3 install pbalancing</pre>
 		  This will also install libsbml and tablib on your computer if these libraries are missing.
-		  You can now employ Parameter Balancing as a Python3 package by, e.g., writing a script such as
+		  You can now employ parameter balancing as a Python3 package by, e.g., writing a script such as
 
 		  <pre>from pbalancing import parameter_balancing<br>parameter_balancing.parameter_balancing_wrapper('model.xml')</pre>
 
@@ -315,18 +315,18 @@
 		  configuration file (example files can be found in the <a href="download.html" title="Installation and Downloads">Download Section</a>). 
 		  </p>
 		  <p>
-		    To run Parameter Balancing as a commandline tool, the package needs to be installed as explained above.
+		    To run parameter balancing as a commandline tool, the package needs to be installed as explained above.
 		    Then, it can be executed in the commandline as follows:
 		    <pre> python3 -m pbalancing.parameter_balancing model.xml</pre>
 		    where model.xml corresponds to the path of your SBML model. It is also possible to provide further
 		    input files, such as an SBtab parameter files (.tsv), an SBtab prior information file (.tsv),
-		    and an SBtab options file (.tsv) for the configuration of Parameter Balancing. Providing complete
+		    and an SBtab options file (.tsv) for the configuration of parameter balancing. Providing complete
 		    file information would look like this:
 		    <pre> python3 -m pbalancing.parameter_balancing model.xml --sbtab_data data_file.tsv --sbtab_prior prior_file.tsv --sbtab_options options_file.tsv</pre>
 		    You can create a log file by setting the flag -l, you can use pseudo values to account for a lack
 		    of data by setting the flag -p, you can watch program outputs on your commandline by setting the
 		    flag -v. Information on the SBtab format can be found on www.sbtab.net, more information on the
-		    mentioned file types can be found in the <a href="../../files/manual.pdf">Parameter Balancing manual</a>, and example files can be found at the
+		    mentioned file types can be found in the <a href="../../files/manual.pdf">parameter balancing manual</a>, and example files can be found at the
 		    bottom of this page.
 		    If you do not want to install the pip package, you can still use the commandline modules from the standalone directory on Github.
 		    The usage works as a standard call of a Python module:
@@ -337,20 +337,20 @@
 		  </p>
 	  	</li>
 		<li>
-		  <strong>Python code for Parameter Balancing</strong>
+		  <strong>Python code for parameter balancing</strong>
 		  <a href="https://github.com/tlubitz/parameter_balancing">Python3 source code</a>
-		  for Parameter Balancing can be freely downloaded. Please see
+		  for parameter balancing can be freely downloaded. Please see
 		  the instructions that come with the code.
 		</li>
 		<li>		  
 		  <strong>Web2py application</strong>
-		  The web2py application for Parameter Balancing can be freely downloaded from the
+		  The web2py application for parameter balancing can be freely downloaded from the
 		  <a href="https://bitbucket.org/tlubitz/pb">Github repository</a>. Please see
 		  the instructions that come with the code.
 		</li>
 		<li>
-		  <strong>Matlab code for Parameter Balancing</strong>
-		  Matlab code for Parameter Balancing is included in the <a href="https://github.com/liebermeister/mnt/">Metabolic Networks
+		  <strong>Matlab code for parameter balancing</strong>
+		  Matlab code for parameter balancing is included in the <a href="https://github.com/liebermeister/mnt/">Metabolic Networks
 		    Toolbox</a>. For more information, install the MNT toolbox and type 'help mnt_parameter_balancing'.
 		</li>
 	      </ol>
@@ -370,7 +370,7 @@
 		<h3>Table of biochemical quantities</h3>
 	      </header>
 	      <p align="left">
-		At the beginning of Parameter Balancing, a metabolic network structure is read from
+		At the beginning of parameter balancing, a metabolic network structure is read from
 		an SBML file. It is assumed that all kinetic rate laws will be substituted by
 		<a href="http://bioinformatics.oxfordjournals.org/content/26/12/1528.abstract">modular rate laws</a> and
 		the necessary kinetic constants and some dynamic quantities (referring to a specific metabolic state of
@@ -852,7 +852,7 @@
 		  μ'<sup>0</sup> (for  μ<sup>0</sup>).
 		</li>  
 		<li style="margin-bottom:8px;"><strong>Additive and multiplicative quantities </strong>
-		  In Parameter Balancing, all quantities representing energies (in
+		  In parameter balancing, all quantities representing energies (in
 		  kJ/mol) are treated in their original scale, while all other
 		  quantities are converted to logarithmic scale (column
 		  "Scaling"). Since the latter quantities are described by
@@ -885,7 +885,7 @@
 		  constants, and maximal velocities, make sure that the definitions match between model and data set.
 		</li>
 		<li style="margin-bottom:8px;"><strong>Chemical potentials </strong>
-		  Chemical potentials and standard chemical potentials are estimated during Parameter Balancing (e.g.,
+		  Chemical potentials and standard chemical potentials are estimated during parameter balancing (e.g.,
 		  based on equilibrium constants and metabolite concentrations in the data file), but they cannot be
 		  provided directly as data. The purpose of this restriction is to avoid consistency problems due to
 		  different scaling conventions (e.g., the choice of offset values in Gibbs free energies of formation)
@@ -907,9 +907,9 @@
 	      </header>
 	      <ul align="left">
 		<li style="margin-bottom:8px;">
-		  <b>Where is the Parameter Balancing method described?</b>
-		  Parameter Balancing is described in <a href="http://pubs.acs.org/doi/abs/10.1021/jp108764b">Lubitz et al. (2010)</a>.
-		  If you use Parameter Balancing in your work, please refer to this article. A  modelling workflow based on Parameter Balancing is described
+		  <b>Where is the parameter balancing method described?</b>
+		  Parameter balancing is described in <a href="http://pubs.acs.org/doi/abs/10.1021/jp108764b">Lubitz et al. (2010)</a>.
+		  If you use parameter balancing in your work, please refer to this article. A  modelling workflow based on parameter balancing is described
 		  in <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079195">Stanford et al. (2013)</a>.
 		</li>
 		<li style="margin-bottom:8px;">
@@ -919,8 +919,8 @@
 		  the tool subsequently shows random behaviour.
 		</li>
 		<li style="margin-bottom:8px;">
-		  <b>How does Parameter Balancing work mathematically?</b>
-		  Parameter Balancing employs Bayesian estimation to determine
+		  <b>How does parameter balancing work mathematically?</b>
+		  Parameter balancing employs Bayesian estimation to determine
 		  a consistent set of all model parameters. To use it
 		  efficiently, it is good to know about some of its
 		  details. For technical reasons, all quantities are
@@ -945,12 +945,12 @@
 		  constraints) are inserted into the model.
 		</li>
 		<li style="margin-bottom:8px;">
-		  <b>Which kinetic rate laws are assumed in Parameter Balancing?</b>
-		  Parameter Balancing is based on <a href="http://bioinformatics.oxfordjournals.org/content/26/12/1528.abstract">modular
+		  <b>Which kinetic rate laws are assumed in parameter balancing?</b>
+		  Parameter balancing is based on <a href="http://bioinformatics.oxfordjournals.org/content/26/12/1528.abstract">modular
 		    rate laws</a>, a generalised version of the convenience kinetics. The modular rate laws include reversible mass-action
 		  and reversible Michaelis-Menten rate laws as special cases. Modular rate laws are also supported by
 		  <a href="http://www.ra.cs.uni-tuebingen.de/software/SBMLsqueezer/">SBMLsqueezer</a>, which allows you to directly insert
-		  rate laws into SBML models. In Parameter Balancing, rate laws and rate constants can be directly inserted into your model
+		  rate laws into SBML models. In parameter balancing, rate laws and rate constants can be directly inserted into your model
 		  at the end of the workflow. Note that all rate laws previously present in your model will be removed.
 		</li>
 		<li style="margin-bottom:8px;">
@@ -959,15 +959,15 @@
 		</li>
 		<li style="margin-bottom:8px;">
 		  <b>Where can I find example files?</b>
-		  A number of example files (SBML models and SBtab data tables for Parameter Balancing) can be found
+		  A number of example files (SBML models and SBtab data tables for parameter balancing) can be found
 		  <a href="/pb/static/css/css_template/download.html">here</a>.
 		</li>
 		<li style="margin-bottom:8px;">
 		  <b>What is the SBtab format?</b>
-		  SBtab tables can express various kinds of data. For the Parameter Balancing you need an
+		  SBtab tables can express various kinds of data. For the parameter balancing you need an
 		  SBtab file of the type "Quantity". You can also edit the prior distribution for the
 		  different parameter types by providing an SBtab file of the type "QuantityInfo". Finally,
-		  you can configure several options for the Parameter Balancing process by providing an
+		  you can configure several options for the parameter balancing process by providing an
 		  SBtab file of the type "PbConfig". Examples for each of these SBtab files are on the
 		  corresponding pages of the workflow and in the Downloads section. The current SBtab format is explained
 		  <a href="http://www.sbtab.net/">here</a>. SBtab files are provided in the .tsv-format (tab
@@ -1010,8 +1010,8 @@
 		  </ol>
 		</li>
 		<li style="margin-bottom:8px;">
-		  <b>Where can I find kinetic and other data for Parameter Balancing?</b>
-		  The Parameter Balancing relies on a posterior distribution of the different parameter
+		  <b>Where can I find kinetic and other data for parameter balancing?</b>
+		  The parameter balancing relies on a posterior distribution of the different parameter
 		  types and on a collection of kinetic data provided by the user. 
 		  Typical input data for estimating kinetic parameters comprise catalytic constants (kcat values), Michaelis-Menten
 		  constants (KM values), equilibrium constants, standard reaction Gibbs free energies, and Gibbs free energies of formation.
@@ -1024,7 +1024,7 @@
 		    <li style="margin-bottom:8px;">Thermodynamic data for many reactions can be obtained from the website
 		      <a href="http://equilibrator.weizmann.ac.il/">eQuilibrator</a>. This comprises calculated equilibrium constants and
 		      standard reaction Gibbs free energies for different values of pH and ionic strength. We provide a collection of
-		      these data for Parameter Balancing <a href="/pb/static/files/kegg_reactions_CC_ph7.0.tsv">here</a>.</li>
+		      these data for parameter balancing <a href="/pb/static/files/kegg_reactions_CC_ph7.0.tsv">here</a>.</li>
 		  </ul>
 		</li>
 		<li style="margin-bottom:8px;">
@@ -1034,11 +1034,11 @@
 		</li>
 		<li style="margin-bottom:8px;">
 		  <b>Can I also use flux data?</b>
-		  Metabolic fluxes do not directly fit into the dependence scheme that Parameter Balancing uses internally to link
+		  Metabolic fluxes do not directly fit into the dependence scheme that parameter balancing uses internally to link
 		  different quantitities. Therefore, fluxes cannot be used as input data, nor can they be predicted directly.
 		  However, they can be used in an indirect way, as described in
 		  <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079195">Stanford et al. (2013)</a>.
-		  The idea is as follows: In Parameter Balancing including metabolite levels and reaction Gibbs free energies, known
+		  The idea is as follows: In parameter balancing including metabolite levels and reaction Gibbs free energies, known
 		  flux directions can be used to define the signs of all reaction Gibbs free energies. The resulting rate laws and
 		  metabolite levels will be consistent with the predefined fluxes. The kinetic model, parametrised in this way, and
 		  with the balanced metabolite levels, will yield reaction rates with the same signs as the predefined fluxes. By
@@ -1050,31 +1050,31 @@
 		<li style="margin-bottom:8px;">
 		  <b>How can I define or modify the priors on model parameters?</b>
 		  Experimental data alone will usually not suffice to determine all model parameters. To determine underdetermined
-		  parameters, and to keep parameters in realistic ranges, Parameter Balancing uses prior distributions and constraints
+		  parameters, and to keep parameters in realistic ranges, parameter balancing uses prior distributions and constraints
 		  for each type of parameter. These priors and constraints are defined in a data table, which can be customised by the
 		  user. The table is described <a href="/pb/static/css/css_template/download.html">here</a>.
 		</li>
 		<li style="margin-bottom:8px;">
-		  <b>What known caveats exist in Parameter Balancing?</b>
-		  Parameter Balancing makes specific assumptions about the rate laws 
+		  <b>What known caveats exist in parameter balancing?</b>
+		  Parameter balancing makes specific assumptions about the rate laws 
 		  used. In some cases, this can lead to problems, or parameter
 		  balancing may not be suitable for your modelling. Here we list points
 		  that can typically lead to problems:
 		  <ul>
 		    <li style="margin-bottom:8px;"><b>Large models</b> Large networks lead to large parameter 
 		      sets, which increase
-		      the numerical effort of Parameter Balancing. One possibility to 
+		      the numerical effort of parameter balancing. One possibility to 
 		      avoid this problem is to use fixed, precalculated equilibrium
 		      constants. Then, the kinetic constants of each reaction can be 
 		      balanced separately, which reduces the effort.
-		      In our code for Parameter Balancing, there is a restriction on
+		      In our code for parameter balancing, there is a restriction on
 		      model size to avoid numerical problems.
 		    </li>
 		    <li style="margin-bottom:8px;"><b>Biomass reaction or polymerisation reactions</b> Many 
 		    metabolic models (especially, models used in flux balance analysis)
 		    contain a "biomass" reaction that involves a large number of 
 		    compounds with largely varying stoichiometric coefficients.
-		    Modular rate laws, as assumed in Parameter Balancing, use the 
+		    Modular rate laws, as assumed in parameter balancing, use the 
 		    stoichiometric coefficients as exponents in the formula. For
 		    biomass reactions or polyerisation reactions, this is not very 
 		    realistic as assumption. Furthermore, these reactions usually
@@ -1107,35 +1107,35 @@
 		    parameter values.</li>
 		    <li style="margin-bottom:8px;"><b>How are enzymes handled in the balancing?</b> In SBML, enzymes
 		      are sometimes treated as SBML species and sometimes as SBML parameters; this
-		      is mainly up to the modeller. In Parameter Balancing, enzymes need to be
+		      is mainly up to the modeller. In parameter balancing, enzymes need to be
 		      parameters. If they are provided as species, they cannot correctly be
 		      assigned as reaction modifiers and thus are ignored.
 		    </li>
 		    <li style="margin-bottom:8px;"><b>Annotation of modifiers as activators or inhibitors</b>
-To recognise a reaction modifier, listed in an SBML model, as an activator or inhibitor, the Parameter Balancing code relies on SBO terms in the model. If these terms are missing (which is the case in many existing models), the allosteric regulator will be ignored and no activation or inhibition constant will be estimated.
+To recognise a reaction modifier, listed in an SBML model, as an activator or inhibitor, the parameter balancing code relies on SBO terms in the model. If these terms are missing (which is the case in many existing models), the allosteric regulator will be ignored and no activation or inhibition constant will be estimated.
 		    </li>
 		  </ul>
 		</li>
 		    <li style="margin-bottom:8px;"><b>Can I sample data sets from the posterior distribution?</b>
-		      The Matlab version of Parameter Balancing allows for sampling parameter sets. To generate a sample, a parameter set is randomly sampled from the (multi-variate Gaussian) posterior. If the sample violates constraints, it is replaced by a parameter vector that satisfies all constraints and is closest to the initially sampled vector, where "closeness" is defined by a quadratic norm based on the posterior covariance matrix. The resulting constrained samples satisfy all constraints and give an impression about the posterior uncertainties, but they do not strictly represent the posterior distribution (which is defined as the multi-variate unconstrained Gaussian posterior, constrained to the feasible region).
+		      The Matlab version of parameter balancing allows for sampling parameter sets. To generate a sample, a parameter set is randomly sampled from the (multi-variate Gaussian) posterior. If the sample violates constraints, it is replaced by a parameter vector that satisfies all constraints and is closest to the initially sampled vector, where "closeness" is defined by a quadratic norm based on the posterior covariance matrix. The resulting constrained samples satisfy all constraints and give an impression about the posterior uncertainties, but they do not strictly represent the posterior distribution (which is defined as the multi-variate unconstrained Gaussian posterior, constrained to the feasible region).
 		    </li>
 		    <li style="margin-bottom:8px;"><b>What happens to reactions with many reactants?</b>
-		      Reactions with many reactants (e.g., biomass-producing reactions) are not properly described by modular rate laws, and parameters estimated for such reactions should at least be taken with care. We recommend to remove such reactions from the model before running Parameter Balancing.
+		      Reactions with many reactants (e.g., biomass-producing reactions) are not properly described by modular rate laws, and parameters estimated for such reactions should at least be taken with care. We recommend to remove such reactions from the model before running parameter balancing.
 		    </li>
 		    <li style="margin-bottom:8px;"><b> What happens to reactions without any substrate or without any product?</b>
-		      Reactions without any substrate or without any product are not properly described by modular rate laws, and parameters estimated for such reactions should be taken with care. We recommend to remove such reactions from the model before running Parameter Balancing.
+		      Reactions without any substrate or without any product are not properly described by modular rate laws, and parameters estimated for such reactions should be taken with care. We recommend to remove such reactions from the model before running parameter balancing.
 		    </li>
 		    <li style="margin-bottom:8px;"><b>What happens to reactions with unusual stoichiometric coefficients?</b>
-		      Reactions with high stoichiometric coefficients are not properly described by modular rate laws; in reactions with non-integer stoichiometric coefficients, it is likely that these coefficients do not properly describe molecularities. To avoid problems in such cases, our code allows only stoichiometric coefficients of 1 and 2. All other values (non-integer or values larger than 2) are internally replaced by values of 1. This rule is likely to yield realistic balanced parameter sets; however when checking Haldane relationships with these parameters, please not that the molecularities in these Haldane relationships must represent the adjusted (and not the original) stoichiometric coefficients. In case of doubt, we recommend to remove such reactions from the model before running Parameter Balancing.
+		      Reactions with high stoichiometric coefficients are not properly described by modular rate laws; in reactions with non-integer stoichiometric coefficients, it is likely that these coefficients do not properly describe molecularities. To avoid problems in such cases, our code allows only stoichiometric coefficients of 1 and 2. All other values (non-integer or values larger than 2) are internally replaced by values of 1. This rule is likely to yield realistic balanced parameter sets; however when checking Haldane relationships with these parameters, please not that the molecularities in these Haldane relationships must represent the adjusted (and not the original) stoichiometric coefficients. In case of doubt, we recommend to remove such reactions from the model before running parameter balancing.
 		    </li>
 		    <li style="margin-bottom:8px;"><b>What happens to irreversible reactions?</b>
-		      Parameter Balancing is designed to assume thermodynamic correctness, which implies reversible rate laws. Some reactions (e.g., macromolecule synthesis or biomass-producing reactions) are practically irreversible. In Parameter Balancing, these reactions will still be treated as reversible, but will obtain very large equilibrium constants. In some cases, this may lead to numerical problems. It is recommended to remove such reactions from the model before running Parameter Balancing. Likewise, the rate laws inserted in the SBML model will have a reversible form.
+		      Parameter balancing is designed to assume thermodynamic correctness, which implies reversible rate laws. Some reactions (e.g., macromolecule synthesis or biomass-producing reactions) are practically irreversible. In parameter balancing, these reactions will still be treated as reversible, but will obtain very large equilibrium constants. In some cases, this may lead to numerical problems. It is recommended to remove such reactions from the model before running parameter balancing. Likewise, the rate laws inserted in the SBML model will have a reversible form.
 		    </li>
 		    <li style="margin-bottom:8px;"><b>What is the purpose of pseudo values?</b>
-In Parameter Balancing, some types of parameters are treated as "basic" (e.g., standard chemical potentials), while others are treated as "derived" (e.g., equilibrium constants). By considering independent marginal priors for all basic parameters, we obtain an uncorrelated  prior distribution for the subset of basic parameters, and an ensuing distribution for the derived parameters. However, the variances of derived parameters in this distribution is still large. Therefore, the prior is modified by assuming "pseudo values" for derived parameters. The result is correlated prior distribution for all (basic and derived) parameter types. In this prior distribution "with pseudo values", basic and derived parameters are treated on an equal footing, resulting in realistic variances for all parameters. Please note that pseudo values are not a simple replacement for missing data values: instead, a pseudo value and a data value for the same parameter will be used at the same time.
+In parameter balancing, some types of parameters are treated as "basic" (e.g., standard chemical potentials), while others are treated as "derived" (e.g., equilibrium constants). By considering independent marginal priors for all basic parameters, we obtain an uncorrelated  prior distribution for the subset of basic parameters, and an ensuing distribution for the derived parameters. However, the variances of derived parameters in this distribution is still large. Therefore, the prior is modified by assuming "pseudo values" for derived parameters. The result is correlated prior distribution for all (basic and derived) parameter types. In this prior distribution "with pseudo values", basic and derived parameters are treated on an equal footing, resulting in realistic variances for all parameters. Please note that pseudo values are not a simple replacement for missing data values: instead, a pseudo value and a data value for the same parameter will be used at the same time.
 		    </li>
 		    <li style="margin-bottom:8px;"><b>Enzymes as model species</b>
-		      The Parameter Balancing tool assumes that the SBML model contains all reactions and metabolites, but not the catalysing enzymes. If enzymes appear explicitly in the model as <species>, they need to be tagged as enzymes by an SBO term. Otherwise, they will be treated as metabolites. In the Parameter Balancing results, this may lead to redundant (and contradictory) results, defining a "concentration" of the enzyme, and a (contradictory) "concentration of enzyme" of the enzyme-catalysed reaction.
+		      The parameter balancing tool assumes that the SBML model contains all reactions and metabolites, but not the catalysing enzymes. If enzymes appear explicitly in the model as <species>, they need to be tagged as enzymes by an SBO term. Otherwise, they will be treated as metabolites. In the parameter balancing results, this may lead to redundant (and contradictory) results, defining a "concentration" of the enzyme, and a (contradictory) "concentration of enzyme" of the enzyme-catalysed reaction.
 		    </li>
 		    <li style="margin-bottom:8px;"><b>How can I impose lower or upper bounds on data values?</b>
 		      For each parameter type (e.g. substrate catalytic constant), lower and upper bounds are defined in the (modifiable) pb_prior file. Lower and upper bounds for individual parameters (e.g., the substrate catalytic constant of a specific reaction in the model), lower and upper bounds can be defined in the data file. Specifically in the case of catalytic constants, lower bounds could derived from measured flux and proteomics data, and an upper bound is given by the diffusion limit.
@@ -1158,20 +1158,20 @@ In Parameter Balancing, some types of parameters are treated as "basic" (e.g., s
 		  and standard deviation of the logarithmic parameter values (assumed to follow a normal distribution).
 		</li>
 		<li style="margin-bottom:8px;">
-		  <strong>Is Parameter Balancing limited to metabolic models or could it be applied to other biological models?</strong>
-		  A specific problem in metabolic systems (which, in Parameter Balancing, is turned into an advantage) is the fact
+		  <strong>Is parameter balancing limited to metabolic models or could it be applied to other biological models?</strong>
+		  A specific problem in metabolic systems (which, in parameter balancing, is turned into an advantage) is the fact
 		  that kinetic constants are dependent through Wegscheider conditions (for equilibrium constants) and Haldane
 		  relationships (between equilibrium constants, turnover rates, and Michaelis-Menten constants); and, given the
 		  flux directions, equilibrium constants and metabolite concentrations are dependent as well. This is the reason
-		  why in Parameter Balancing those parameters (and also state variables such as metabolite concentrations) are not
+		  why in parameter balancing those parameters (and also state variables such as metabolite concentrations) are not
 		  estimated or sampled independently, but using a linear dependence scheme in the background. Some parameters, e.g.
 		  the allosteric inhibition and activation constants, are independent of all other parameters and can be manually
-		  chosen by the modeller. The Parameter Balancing would not be necessary in this case, and they are only included
+		  chosen by the modeller. The parameter balancing would not be necessary in this case, and they are only included
 		  in our software for convenience. Coming back to non-metabolic systems: even though the laws of thermodynamics
 		  apply to any biochemical network (including, for example, signalling pathways), thermodynamic constraints are
 		  usually not considered in these models: in particular, many reactions (e.g., phosphorylation by kinases) are
 		  described by irreversible kinetics, which renders Wegscheider conditions and Haldane relationships obsolete.
-		  As in the case of allosteric rate constants, applying Parameter Balancing is simply not necessary, and the
+		  As in the case of allosteric rate constants, applying parameter balancing is simply not necessary, and the
 		  different model parameters can be chosen at will, without having to care about (and without having the
 		  opportunity of exploiting) their interdependencies.<br>
 		  Aside from from these theoretical considerations, there is also a practical answer. The formalism of Parameter

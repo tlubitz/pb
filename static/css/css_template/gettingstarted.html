@@ -60,10 +60,10 @@
 	    <div class="col-sm-3"></div>
 	    <div class="col-sm-6" style="text-align:left;line-height:2;">
 	      <header>
-		<h3>0. What is Parameter Balancing? How and where can I employ it?</h3>
+		<h3>0. What is parameter balancing? How and where can I employ it?</h3>
 	      </header>
 	      <p>
-		Parameter Balancing is a computational method for obtaining consistent parameter
+		Parameter balancing is a computational method for obtaining consistent parameter
 		sets for kinetic metabolic models. Experimentally measured values, when inserted
 		into models directly, would be likely to yield incomplete and inconsistent parameter
 		sets. Balanced parameter sets, computed from measured kinetic constants and other
@@ -71,7 +71,7 @@
 		about typical ranges, represented by prior values and bounds.
 	      </p>
 	      <p>
-		You can employ Parameter Balancing on this website in the
+		You can employ parameter balancing on this website in the
 		<a href="../../../default/balancing.html" title="Go to online balancing">Online Balancing</a>
 		section. <i>How</i> it is employed is shown in this tutorial. First, we will show you what
 		<a href="#files">sorts of files (1)</a> you will need to provide. Next, you will see how the
@@ -79,9 +79,9 @@
 		<a href="#op">output files (3)</a>.
 	      </p>
 	      <p>
-		If you are looking for an explanation on how to embed Parameter Balancing in your own
+		If you are looking for an explanation on how to embed parameter balancing in your own
 		programming workflows or want to have a look at the underlying Python 3 source code,
-		please go to our <a href="https://github.com/tlubitz/parameter_balancing">Parameter Balancing Github</a> page.
+		please go to our <a href="https://github.com/tlubitz/parameter_balancing">parameter balancing Github</a> page.
 	      </p>
 	    </div>
 	    <div class="col-sm-3"></div>
@@ -95,11 +95,11 @@
 	    <div class="col-sm-3"></div>
 	    <div class="col-sm-6" style="text-align:left;line-height:2;">
 	      <header>
-		<h3>1. What will I need in order to perform Parameter Balancing?</h3>
+		<h3>1. What will I need in order to perform parameter balancing?</h3>
 	      </header>
 
 	      <p>
-		Your data for Parameter Balancing needs to be provided in the Systems Biology standard formats
+		Your data for parameter balancing needs to be provided in the Systems Biology standard formats
 		SBML and/or SBtab. Please click on the buttons to read the details.
 	      </p>
 	      
@@ -166,7 +166,7 @@
 		  <p>
 		    Besides the obligatory kinetic model in SBML or SBtab format, you can provide an optional SBtab file with experimental
 		    data. While this feature is optional, we strongly recommend the provision of such a data file to improve the results
-		    of the Parameter Balancing. The SBtab TableType for these data is called "Quantity" and for the simple phosphofructokinase
+		    of the parameter balancing. The SBtab TableType for these data is called "Quantity" and for the simple phosphofructokinase
 		    reaction above it could look as such:
 		  </p>
 	          <p style="text-align:center!important;">
@@ -206,7 +206,7 @@
 		</a>
 		<div class="collapse" id="config" style="line-height:2;">
 		  <p>
-		    Parameter Balancing is a highly complex modelling tool that can be configured to match the user's individual
+		    Parameter balancing is a highly complex modelling tool that can be configured to match the user's individual
 		    requirements. Thus, users can provide an SBtab file of the TableType "PbConfig" which should look as follows:
 		  </p>
 
@@ -216,7 +216,7 @@
 			<img width="80%" src="img/sbtab_config_example.png" alt="Parameter Balancing Logo" style="margin-top:20px;border-style: solid;border-width: 2px;">
 		      </a>
 		      <figcaption style="font-style:italic;">
-			The SBtab table "PbConfig" defines configuration options for the Parameter Balancing (the colours are for visualisation purposes only, not part of the format)
+			The SBtab table "PbConfig" defines configuration options for the parameter balancing (the colours are for visualisation purposes only, not part of the format)
 		      </figcaption>
 		    </figure>
 		  </p>
@@ -225,9 +225,9 @@
 		    <ul>
 		      <li><strong>use_pseudo_values</strong> (Bool; True or False): usage of pseudo values as substitute for missing parameter values
 to improve balancing (see <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079195" target="_blank">Stanford et al.</a> for details)</li>
-		      <li><strong>pH</strong> (float; 1-14): pH value that allows Parameter Balancing for correction of parameter values that do not
+		      <li><strong>pH</strong> (float; 1-14): pH value that allows parameter balancing for correction of parameter values that do not
 correspond to the systems target pH value (see <a href="https://pubs.acs.org/doi/abs/10.1021/jp108764b" target="_blank">Lubitz et al.</a> for details)</li>
-		      <li><strong>Temperature</strong> (float, in Kelvin): temperature that allows Parameter Balancing for correction of parameter
+		      <li><strong>Temperature</strong> (float, in Kelvin): temperature that allows parameter balancing for correction of parameter
 values that do not correspond to the systems target temperature (see <a href="https://pubs.acs.org/doi/abs/10.1021/jp108764b" target="_blank">Lubitz et al.</a> for details)</li>
 		      <li><strong>overwrite_kinetics</strong> (Bool; True or False): should existing kinetic laws in the SBML file be overwritten?</li>
 		      <li><strong>cell volume</strong> (float; in µm3): volume of the cell</li>
@@ -256,7 +256,7 @@ law?</li>
 		</a>
 		<div class="collapse" id="prior" style="line-height:2;">
 		  <p>
-		    Since Parameter Balancing is a Bayesian estimation, it relies on a prior distribution of the quantity types. The default
+		    Since parameter balancing is a Bayesian estimation, it relies on a prior distribution of the quantity types. The default
 		    prior distribution has been chosen carefully for each quantity type and looks as such:
 		  </p>
 		  
@@ -715,7 +715,7 @@ law?</li>
 		  <p>
 		    Experienced users may choose to change the prior distribution to make it match their
 		    individual requirements. Please only do so carefully as it has significant effects on
-		    the Parameter Balancing. Also, read the corresponding section 2.1.2 from the
+		    the parameter balancing. Also, read the corresponding section 2.1.2 from the
 		    <a href="https://www.parameterbalancing.net/pb/static/files/manual.pdf" target="_blank">Parameter
 		    Balancing manual</a> and the <a href="documentation.html#quant">Chapter on Biochemical Quantities</a> in the Documentation Section.
 		    Users can provide an alternative table for the prior distributions in SBtab format. We
@@ -757,11 +757,11 @@ law?</li>
 		<img width="80%" src="img/online_balancing_02.png" alt="Parameter Balancing Logo" style="margin-top:50px;margin-bottom:50px;border-style: solid;border-width: 2px;">
 	      </p>
 	      <p>
-		In this option, you can upload separate input files for the Parameter Balancing. The SBML file for the
+		In this option, you can upload separate input files for the parameter balancing. The SBML file for the
 		kinetic model is obligatory, all other files are optional. All file formats and contents are
 		described in Part 1 of this tutorial. After you have uploaded your SBML file, you can simply
 		click on the "Balance Parameters" button on the bottom of the column. The software will
-		read all your submitted files automatically, perform the Parameter Balancing and redirect you to the download area.
+		read all your submitted files automatically, perform the parameter balancing and redirect you to the download area.
 	      </p>
 	      <strong>Option 2: Single Input File</strong>
 	      <p style="text-align:center!important;">
@@ -780,8 +780,8 @@ law?</li>
 		automatically translate your SBML file into the SBtab format (and vice versa), you can have a look at the
 		<a href="https://www.sbtab.net/sbtab/default/converter.html">SBML <-> SBtab</a> converter
 		on the SBtab homepage. We want to remind you that we recommend .tsv files as preferred SBtab format. <br>
-		After the file is uploaded you can start the Parameter Balancing by clicking the "Balance Parameters" button
-		on the bottom of the column. Parameter Balancing is performed and you will be redirected to the Download area.
+		After the file is uploaded you can start the parameter balancing by clicking the "Balance Parameters" button
+		on the bottom of the column. Parameter balancing is performed and you will be redirected to the Download area.
 	      </p>
 	    </div>
 	    <div class="col-sm-3"></div>
@@ -808,7 +808,7 @@ law?</li>
 		You can download your SBML model with inserted balanced parameters in the "Download area SBML" on the top
 		of the page. The default behaviour will cause the old kinetic rate laws of the model to be overwritten with
 		common modular rate laws sporting the balanced parameter set. This behaviour can be influenced in several
-		ways by using an options file in the Parameter Balancing. You can choose the parametrisation, enzyme
+		ways by using an options file in the parameter balancing. You can choose the parametrisation, enzyme
 		behaviour, and more (see <a href="gettingstarted.html#conf">Part 1C of this tutorial</a>). By clicking on the name of the file you can display
 		the SBML source code in a new tab.
 	      </p>
@@ -817,7 +817,7 @@ law?</li>
 		By clicking on the file name you can display the SBtab file in a new tab. The values that are employed in the
 		balanced model can be found in the column "Mode", which are point estimates from the computed posterior
 		distribution. In order to understand the full scope of the output file we would like to refer you to Section
-		2.2.3 of the <a href="https://www.parameterbalancing.net/pb/static/files/manual.pdf" target="_blank">Parameter Balancing manual</a>.
+		2.2.3 of the <a href="https://www.parameterbalancing.net/pb/static/files/manual.pdf" target="_blank">parameter balancing manual</a>.
 	      </p>
 	      <p>
 		Finally, you can download the whole bundle of output information in one single SBtab file: The kinetic model, the quantities, the
@@ -841,8 +841,8 @@ law?</li>
 		This tutorial is describing the Online Balancing only superficially. You can find more and deeper information
 		as well as FAQ in the <a href="documentation.html" title="Installation and Downloads">Documentation Section</a>
 		and the <a href="https://www.parameterbalancing.net/pb/static/files/manual.pdf" target="_blank">Parameter
-		Balancing Manual</a>. Here, you can also find details about employing Parameter Balancing in your programming
-		scripts, workflows, or via Linux commandline. Parameter Balancing can also be installed as a pip package.
+		Balancing Manual</a>. Here, you can also find details about employing parameter balancing in your programming
+		scripts, workflows, or via Linux commandline. Parameter balancing can also be installed as a pip package.
 		All required file formats and exemplary file contents can be found in the
 		<a href="download.html" title="Installation and Downloads">Download Section</a>. And finally, please do
 		not hesitate to contact <a href="contact.html" title="Contact">Wolfram Liebermeister
