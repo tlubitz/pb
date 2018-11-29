@@ -777,30 +777,30 @@ def tsv_to_html(sbtab, filename=None):
 
     sbtab_html += '''
     <main>
-    <div class="container-fluid bg-1 text-center" style="padding-top:50px">
-    <div class="row">
+    <div class="container-fluid bg-1c text-center">
+    <div class="row" style="background-color:#9d9d9d;">
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
-    <table class="table-striped" style="font-size:13px">'''
+    <table class="table-striped" style="font-size:13px;background-color:#fff;padding:3px;">'''
         
     first = True
     for i, row in enumerate(ugly_sbtab):
         # declaration of first SBtab in document
         if row.startswith('!!') and first:
-            sbtab_html += '<tr><th colspan="%s">%s</th></tr>' % (len(ugly_sbtab[i+2]), row)
+            sbtab_html += '<tr><th colspan="%s" style="padding:3px;">%s</th></tr>' % (len(ugly_sbtab[i+2]), row)
             first = False
 
         # conclusion of SBtab and beginning of new SBtab (if there are more than one)
         elif row.startswith('!!'):
-            sbtab_html += '</table><br><table class="table-striped" style="font-size:13px">'
-            sbtab_html += '<tr><th colspan="%s">%s</th></tr>' % (len(ugly_sbtab[i+2]), row)
+            sbtab_html += '</table><br><table class="table-striped" style="font-size:13px;background-color:#fff;">'
+            sbtab_html += '<tr><th colspan="%s" style="padding:3px;">%s</th></tr>' % (len(ugly_sbtab[i+2]), row)
 
         # column header row
         elif row.startswith('!'):
             splitrow = row.split(delimiter)
             sbtab_html += '<tr>'
             for col in splitrow:
-                sbtab_html += '<th>%s</th>' % col
+                sbtab_html += '<th style="padding:3px;">%s</th>' % col
             sbtab_html += '</tr>'
 
         # comment row
@@ -816,7 +816,7 @@ def tsv_to_html(sbtab, filename=None):
             splitrow = row.split(delimiter)
             sbtab_html += '<tr>'
             for col in splitrow:
-                sbtab_html += '<td>%s</td>' % col
+                sbtab_html += '<td style="padding:3px;">%s</td>' % col
             sbtab_html += '</tr>'
 
         '''
