@@ -308,7 +308,7 @@
 		  This will also install libsbml and tablib on your computer if these libraries are missing.
 		  You can now employ parameter balancing as a Python3 package by, e.g., writing a script such as
 
-		  <pre>from pbalancing import parameter_balancing<br>parameter_balancing.parameter_balancing_wrapper('model.xml')</pre>
+		  <pre>from pbalancing import parameter_balancing_core<br>parameter_balancing_core.parameter_balancing_wrapper('model.xml')</pre>
 
 		  In this example case, 'model.xml' is the file name of an SBML model. Further optional
 		  arguments are an SBtab parameter file, an SBtab prior distribution file, and an SBtab
@@ -317,12 +317,12 @@
 		  <p>
 		    To run parameter balancing as a commandline tool, the package needs to be installed as explained above.
 		    Then, it can be executed in the commandline as follows:
-		    <pre> python3 -m pbalancing.parameter_balancing model.xml</pre>
+		    <pre> python3 -m pbalancing.parameter_balancing_core model.xml</pre>
 		    where model.xml corresponds to the path of your SBML model. It is also possible to provide further
 		    input files, such as an SBtab parameter files (.tsv), an SBtab prior information file (.tsv),
 		    and an SBtab options file (.tsv) for the configuration of parameter balancing. Providing complete
 		    file information would look like this:
-		    <pre> python3 -m pbalancing.parameter_balancing model.xml --sbtab_data data_file.tsv --sbtab_prior prior_file.tsv --sbtab_options options_file.tsv</pre>
+		    <pre> python3 -m pbalancing.parameter_balancing_core model.xml --sbtab_data data_file.tsv --sbtab_prior prior_file.tsv --sbtab_options options_file.tsv</pre>
 		    You can create a log file by setting the flag -l, you can use pseudo values to account for a lack
 		    of data by setting the flag -p, you can watch program outputs on your commandline by setting the
 		    flag -v. Information on the SBtab format can be found on www.sbtab.net, more information on the
