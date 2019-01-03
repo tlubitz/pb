@@ -129,7 +129,6 @@ def balancing():
                                       label='Upload data file (.tsv)',
                                       requires=IS_LENGTH(10485760, 1,
                                                          error_message='Max upload size: 10MB')))
-
     # upload form
     if sbtabform.process(formname='form_two').accepted:
         response.flash = 'form accepted'
