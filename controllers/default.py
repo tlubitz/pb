@@ -13,7 +13,6 @@ import copy
 import balancer
 import kineticizer
 import SBtab
-import tablibIO
 import validatorSBtab
 import sbtab2sbml
 import sbml2sbtab
@@ -263,7 +262,7 @@ def balancing():
             else:
                 try:
                     prior = sbtab_prior
-                    delimiter = misc.check_delimiter(sbtab_prior.return_table_string())
+                    delimiter = misc.check_delimiter(sbtab_prior.to_str())
                     validity = misc.valid_prior(sbtab_prior)
                     for warning in validity:
                         session.warnings_prior.append(warning)
@@ -297,11 +296,11 @@ def balancing():
                                             filename)
             valid_extension = misc.validate_file_extension(sbtab_config.filename,
                                                            'sbtab')
-            if sbtab_config.table_type != 'PbConfig':
+            if sbtab_config.table_type != 'Config':
                 session.warnings_config.append('Error: The SBtab file has an i'
                                                'ncorrect table type: "'"%s"'".'
                                                ' The correct table type would '
-                                               'be "'"PbConfig"'".\n' % (TableValidClass.sbtab.table_type))
+                                               'be "'"Config"'".\n' % (TableValidClass.sbtab.table_type))
             if not valid_extension:
                 session.warnings_config.append('Error: The file extension of f'
                                                'ile %s is not compliant with S'
@@ -325,7 +324,7 @@ def balancing():
                         for w in warnings:
                             session.warnings_config.append(w)
                     delimiter = \
-                       misc.check_delimiter(sbtab_config.return_table_string())
+                       misc.check_delimiter(sbtab_config.to_str())
                     (session.parameter_dict,
                      warnings) = misc.readout_config(sbtab_config)
                     if warnings != []:
@@ -516,11 +515,11 @@ def balancing():
             if session.config is not None:
                 sbtab_config = session.config_file
                 config_filename = session.config_filename
-                if sbtab_config.table_type != 'PbConfig':
+                if sbtab_config.table_type != 'Config':
                     session.warnings_config.append('Error: The SBtab file has '
                                                    'an incorrect table type'
                                                    ': "'"%s"'". The correct ta'
-                                                   'ble type would be "'"PbConfig"'".'
+                                                   'ble type would be "'"Config"'".'
                                                    '\n' % (TableValidClass.sbtab.table_type))
 
                 # get default definition file
@@ -537,7 +536,7 @@ def balancing():
                         for w in warnings:
                             session.warnings_config.append(itemx)
                     delimiter = \
-                       misc.check_delimiter(sbtab_config.return_table_string())
+                       misc.check_delimiter(sbtab_config.to_str())
                     (session.parameter_dict, warnings) = \
                                             misc.readout_config(sbtab_config)
                     if warnings != []:
@@ -577,7 +576,7 @@ def balancing():
                 sbml_model = sbml.getModel()
                 pb = balancer.ParameterBalancing(sbml_model)
                 sbtab_data = pb.make_empty_sbtab(pmin, pmax,
-                                                 session.parameter_dict)
+                                                    session.parameter_dict)
             except:
                 session.warnings_sbml.append('Error: The SBML file %s could no'
                                              't be processed properly'
@@ -647,9 +646,9 @@ def balancing():
         # 5: BALANCE PARAMETERS
         try:
             (sbtab_final, mean_vector, mean_vector_inc, c_post,
-             c_post_inc, r_matrix, shannon,
-             log) = pb.make_balancing(sbtab_new, sbtab_data,
-                                      pmin, pmax, session.parameter_dict)
+                c_post_inc, r_matrix, shannon,
+                log, concat) = pb.make_balancing(sbtab_new, sbtab_data,
+                                        pmin, pmax, session.parameter_dict)
             session.log = log
         except:
             session.warnings_sbml.append('Error: The balancing process was err'
@@ -697,18 +696,18 @@ def balancing():
             except: redirect(URL('../balancing'))
 
         # 8.2: SBtab
-        try:
-            sbtab_file_new = open(sbtab_final.filename + '.tsv', 'w')
-            sbtab_file_new.write(sbtab_final.return_table_string())
-            sbtab_file_new.close()
-            session.result_sbtab = [sbtab_final]
-            session.result_sbtab_name = [sbtab_final.filename[:-4] + \
-                                         '_balanced_parameters.tsv']
-        except:
-            session.warnings_sbtab.append('Error: The new SBtab file could not'
-                                          ' be produced.')
-            try: redirect(URL('../default/balancing'))
-            except: redirect(URL('../balancing'))
+        #try:
+        sbtab_file_new = open(sbtab_final.filename + '.tsv', 'w')
+        sbtab_file_new.write(sbtab_final.to_str())
+        sbtab_file_new.close()
+        session.result_sbtab = [sbtab_final]
+        session.result_sbtab_name = [sbtab_final.filename[:-4] + \
+                                        '_balanced_parameters.tsv']
+        #except:
+        #    session.warnings_sbtab.append('Error: The new SBtab file could not'
+        #                                  ' be produced.')
+        #    try: redirect(URL('../default/balancing'))
+        #    except: redirect(URL('../balancing'))
 
         # 8.3: SBtab (for all)
         # Fix this as soon as we have the SBtab Document Class
@@ -719,12 +718,12 @@ def balancing():
             sbtab_string = ''
             (sbtab_all, warnings) = document.makeSBtabs()
             for sbtab in sbtab_all:
-                sbtab_string += sbtab.return_table_string() + '\n\n'
-            sbtab_string += sbtab_final.return_table_string() + '\n\n'
+                sbtab_string += sbtab.to_str() + '\n\n'
+            sbtab_string += sbtab_final.to_str() + '\n\n'
             if 'prior' in session:
-                sbtab_string += session.prior.return_table_string() + '\n\n'
+                sbtab_string += session.prior.to_str() + '\n\n'
             if 'config_file' in session and session.config_file is not None:
-                sbtab_string += session.config_file.return_table_string() + \
+                sbtab_string += session.config_file.to_str() + \
                                 '\n\n'
             session.result_sbtab.append(sbtab_string)
             session.result_sbtab_name.append(sbml_filename[:-4] + \
@@ -773,7 +772,7 @@ def balancing():
                     sbtab_data = SBtab.SBtabTable(sbtab,
                                                   session.sbtab_fl_name[:-4] + \
                                                   '_%s.tsv' % 'data')
-                elif 'PbConfig' in sbtab:
+                elif 'Config' in sbtab:
                     sbtab_config = SBtab.SBtabTable(sbtab,
                                                     session.sbtab_fl_name[:-4] + \
                                                     '_%s.tsv' % 'config')
@@ -843,11 +842,11 @@ def balancing():
                 sbtab_def = SBtab.SBtabTable(definition_file, definition_name)
                 TableValidClass = validatorSBtab.ValidateTable(sbtab_config,
                                                                sbtab_def)
-                if sbtab_config.table_type != 'PbConfig':
+                if sbtab_config.table_type != 'Config':
                     session.warnings_fl.append('Error: The SBtab file has an i'
                                                'ncorrect table type: "'"%s"'".'
                                                ' The correct table type would '
-                                               'be "'"PbConfig"'".\n' % (sbtab_config.table_type))
+                                               'be "'"Config"'".\n' % (sbtab_config.table_type))
                 warnings = TableValidClass.return_output()
                 if warnings != []:
                     for w in warnings:
@@ -965,10 +964,10 @@ def balancing():
         # 5: BALANCE PARAMETERS
         try:
             (sbtab_final, mean_vector, mean_vector_inc, c_post, c_post_inc,
-             r_matrix, shannon, log) = pb.make_balancing(sbtab_new,
-                                                         sbtab_data,
-                                                         pmin, pmax,
-                                                         session.parameter_dict)
+                r_matrix, shannon, log, concat) = pb.make_balancing(sbtab_new,
+                                                            sbtab_data,
+                                                            pmin, pmax,
+                                                            session.parameter_dict)
             session.log = log
         except:
             session.warnings_fl.append('Error: The balancing process was erron'
@@ -1029,7 +1028,7 @@ def balancing():
             sbtabs_all = ''
             for sbtab in sbtabs:
                 sbtabs_all += sbtab + '\n'
-            sbtabs_all += sbtab_final.return_table_string() + '\n'
+            sbtabs_all += sbtab_final.to_str() + '\n'
             session.result_sbtab.append(sbtabs_all)
             session.result_sbtab_name.append(session.sbtab_fl_name[:-4] + \
                                              '_balanced_model.tsv')
@@ -1241,7 +1240,7 @@ def download_sbtab():
     # the SBtab Document class
     try:
         content = \
-          session.result_sbtab[int(request.vars.download_button_sbtab)].return_table_string()
+          session.result_sbtab[int(request.vars.download_button_sbtab)].to_str()
     except:
         content = \
           session.result_sbtab[int(request.vars.download_button_sbtab)]
